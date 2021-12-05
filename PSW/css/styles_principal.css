@@ -74,13 +74,15 @@ background-color: #ece8ea;
 #footer{
     border-bottom: 1px solid #7a7a7a;
     height: 65px;
-    transform: translateY(130px);
 }
 
 #footer a:hover{
     color:#7a7a7a
 }
 
+.footer-pos{
+    position: static;
+}
 
 .footer-brand span{
     font-weight: 700;
