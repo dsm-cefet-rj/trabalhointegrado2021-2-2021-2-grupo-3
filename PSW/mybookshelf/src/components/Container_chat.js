@@ -1,11 +1,11 @@
 import React from 'react';
 
-export default() => {
+export default(props) => {
     return(
         <div class="container">
-        <img src="img/pingu.jpg" alt="Avatar"/>
-        <p>Podemos nos encontrar no shopping ?</p>
-        <span class="time-right">11:00</span>
+        <img src={props.img} alt={"Avatar"}/>
+        <p>{props.msg}</p>
+        <span class="time-right">{props.hora}</span>
         </div>
     );
 }
