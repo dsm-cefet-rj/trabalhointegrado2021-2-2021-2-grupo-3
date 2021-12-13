@@ -4,14 +4,14 @@ import pingu from "../../img/pingu.jpg";
 
 export default function Chat(){
     return(
-        <>
-        <Container_chat img={pingu} msg="mensagem teste" hora="11:30"/>
-        <Container_chat msg="mensagem teste"/>
-        <footer>
-			<textarea style="width: 100%;" placeholder="Type your message"></textarea>
-		</footer>
-        <i style="font-size: 2.2em;" class="bi bi-images"></i>
-        <a style="transform: translate(20px, -7px);" href="#" class= "btn btn-primary">Enviar</a>
-        </>
+        <div className="chat">
+        <Container_chat className="container"img={pingu} msg="mensagem teste" hora="11:30"/>
+        <Container_chat className="container darker"msg="mensagem teste"/>
+        <Container_chat className="container darker"msg="mensagem teste155000"/>
+        <Container_chat className="container darker" msg="vai">
+		<textarea placeholder="Type your message"></textarea>
+        <i class="bi bi-images"></i>
+        <a href="#" class= "btn btn-primary">Enviar</a>
+        </div>
     );
 }
