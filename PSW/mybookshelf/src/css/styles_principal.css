@@ -38,6 +38,11 @@ background-color: #ece8ea;
     color: #7a7a7a;
 }
 
+.livrosAlugados{
+    transform: translate(10px, 80px);
+    font-size: 2em;
+}
+
 .third-color{
     color: #ffffff;
 }
