@@ -5,14 +5,13 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import "../css/styles_principal.css"
 
 export class Header extends React.Component{
     
     render(){
-        return(
-            <Router>
+        return(          
                 <nav className="navbar navbar-expand-lg fixed-top bg-primary-color" id="navbar">
-                <div className="container py-3">
                     <Link to="/" className="navbar-brand third-color">
                         <span>My bookshelf</span>
                     </Link>
@@ -38,10 +37,8 @@ export class Header extends React.Component{
                                 <Link to="/" className="nav-link third-color" > Devolver </Link>
                             </li>
                         </ul>
-                    </div>
                 </div>
                 </nav>
-            </Router>
         );
     }
 }

@@ -9,10 +9,10 @@ import {
     Route,
     Link
   } from "react-router-dom";
+  import "../css/styles_principal.css"
 
 function Cards (){
         return(
-    <Router>
         <div classNameName="">
             <div className=" table-responsive-stack">
             <table>
@@ -59,10 +59,9 @@ function Cards (){
                     </th> 
                 </tr>
             </table>        
-                <br/> <Link to="/" className="btn btn-primary btn-vermais">Ver mais livros</Link>   
+                <Link to="/" className="btn btn-primary">Ver mais livros</Link>   
             </div>      
         </div>
-    </Router>
         );
 }
 export default Cards

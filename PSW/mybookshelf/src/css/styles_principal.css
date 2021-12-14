@@ -10,13 +10,15 @@ body{
 
     margin:0;
     padding: 0;
-    background-image: url("../img/estante.jpg");
+    background-image: url("../img/back2.jpg");
     background-repeat: no-repeat;
     background-size: cover; 
 }
 
 .bg-primary-color{
-    background-color: rgb(190, 162, 68);
+    background-color: rgb(217 185 137);
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
 }
 
 .bg-secondary-color{
