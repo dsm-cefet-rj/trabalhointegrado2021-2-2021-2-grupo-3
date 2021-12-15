@@ -1,6 +1,12 @@
 import React from "react";
 import Input from "../Input";
 import './FormCadastroUsuario.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 export default () => {
@@ -77,7 +83,7 @@ export default () => {
                     <label htmlFor="agreement" id="agreement-label">Eu li e aceito os <a href="#">termos de uso</a></label>
                 </div>
                 <div className="full-box">
-                    <input type="submit" defaultValue="registrar" id="btn-submit" />
+                    <Link to="/"><input type="submit" defaultValue="registrar" id="btn-submit" /></Link>                
                 </div>
                 </form>
             </div>

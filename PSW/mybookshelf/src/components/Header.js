@@ -22,7 +22,7 @@ export class Header extends React.Component{
                     <div className="collapse navbar-collapse" id="navbar-items">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link to="/" className="nav-link active third-color" aria-current="page"> Home </Link>
+                                <Link to="/CadastroUsuario" className="nav-link active third-color" aria-current="page"> Home </Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/" className="nav-link third-color" > Perfil do usuario</Link>
@@ -31,10 +31,10 @@ export class Header extends React.Component{
                                 <Link to="/" className="nav-link third-color" > Alugar </Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/" className="nav-link third-color" > Livros alugados </Link>
+                                <Link to="/LivrosAlugados" className="nav-link third-color" > Livros alugados </Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/" className="nav-link third-color" > Devolver </Link>
+                                <Link to="/DevolverLivro" className="nav-link third-color" > Devolver </Link>
                             </li>
                         </ul>
                 </div>

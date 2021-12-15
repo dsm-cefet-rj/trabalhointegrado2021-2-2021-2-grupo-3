@@ -7,12 +7,11 @@
 }
 
 body{
-
-    margin:0;
-    padding: 0;
     background-image: url("../img/back2.jpg");
     background-repeat: no-repeat;
-    background-size: cover; 
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .bg-primary-color{
@@ -33,6 +32,15 @@ background-color: #ece8ea;
     color: #050505;
 }
 
+.center {
+    text-align: center;
+    transform: translateY(50px);
+}
+   
+.buttonDevolver {
+    width:50%;
+    transform: translateX(30em);
+}
 
 .secondary-color{
     color: #7a7a7a;

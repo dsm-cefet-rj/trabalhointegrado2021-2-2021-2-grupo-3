@@ -54,7 +54,7 @@ function Cards (){
                             <div className="card-body">
                               <h5 className="card-title">O poder do hábito</h5>
                               <p className="card-text">Este livro tem como objetivo descrever...</p>
-                              <Link to="/" className="btn btn-primary">Devolver</Link>
+                              <Link to="/DevolverLivro" className="btn btn-primary">Devolver</Link>
                             </div>
                           </div> 
                     </th> 
