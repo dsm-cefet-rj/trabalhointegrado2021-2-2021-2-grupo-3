@@ -36,6 +36,9 @@ export class Header extends React.Component{
                             <li className="nav-item">
                                 <Link to="/DevolverLivro" className="nav-link third-color" > Devolver </Link>
                             </li>
+                            <li className="nav-item">
+                                <Link to="/Chat" className="nav-link third-color" > Chat </Link>
+                            </li>
                         </ul>
                 </div>
                 </nav>
