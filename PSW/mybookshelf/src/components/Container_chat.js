@@ -3,13 +3,16 @@ import "../css/styles_text.css"
 
 export default(props) => {
     return(
-        <>
-        <link  rel="stylesheet" href="css/styles_text.css"/>
-        <div className={props.className}>
-        <img src={props.img} alt={"Avatar"}/>
-        <p>{props.msg}</p>
-        <span class="time-right">{props.hora}</span>
-        </div>
-        </>
+        props.chat.map((var_chat) => {
+            return(<>
+            <link  rel="stylesheet" href="css/styles_text.css"/>
+            <div className={var_chat.className}>
+            <img src={var_chat.img} alt={"Avatar"}/>
+            <p>{var_chat.msg}</p>
+            <span class="time-right">{var_chat.hora}</span>
+            </div>
+            </>
+            )
+        })
     );
 }

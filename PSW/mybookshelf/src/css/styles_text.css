@@ -52,3 +52,8 @@
 	float: left;
 	color: #999;
   }
+
+  textarea{
+	  width: 90%;
+	  background-color: lightgray;
+  }
