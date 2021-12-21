@@ -5,7 +5,7 @@ import livro from '../../img/livro4.jpg'
 import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 
-const livroInfo = {
+const livroInfoAlugado = {
     titulo: "O Poder do Hábito",
     descricao: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, nventore! Iusto, at.",
     dataAluguel: "12/12/2021",
@@ -27,7 +27,7 @@ export default function DevoluçãoLivro() {
         e.preventDefault()
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData)
-        const devolucaoData = Object.assign({}, livroInfo, data)
+        const devolucaoData = Object.assign({}, livroInfoAlugado, data)
         console.log(devolucaoData)
     }
 
@@ -51,11 +51,11 @@ export default function DevoluçãoLivro() {
             <div className="center">
                 <h1> Marcar Devolução </h1>
                 <CardInfoAluguel
-                    img={livroInfo.img}
-                    title={livroInfo.titulo}
-                    descricao={livroInfo.descricao}
-                    dataAluguel={livroInfo.dataAluguel}
-                    proprietario={livroInfo.proprietario}
+                    img={livroInfoAlugado.img}
+                    title={livroInfoAlugado.titulo}
+                    descricao={livroInfoAlugado.descricao}
+                    dataAluguel={livroInfoAlugado.dataAluguel}
+                    proprietario={livroInfoAlugado.proprietario}
                 />
                 <form id="devolution-form" className="buttonDevolver" onSubmit={handlesubmit}>
                     <Input 
