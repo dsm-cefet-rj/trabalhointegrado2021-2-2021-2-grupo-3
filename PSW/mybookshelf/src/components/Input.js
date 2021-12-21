@@ -12,7 +12,10 @@ export default (props) => {
                 placeholder={props.placeholder}
                 pattern={props.pattern}
                 title={props.title} 
-                required={props.required}/>
+                required={props.required}
+                onChange={props.onChange}
+                value={props.value}
+            />
         </div>
     );
 }

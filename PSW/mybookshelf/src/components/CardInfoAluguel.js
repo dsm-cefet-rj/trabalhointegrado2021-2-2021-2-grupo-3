@@ -17,7 +17,7 @@ export default (props) => {
                   
             <div class="rent-information">
               <p class="rent-date"><strong>Alugado em:</strong> {props.dataAluguel}</p>
-              <p><strong>Proprietário:</strong>{props.proprietario}</p>
+              <p><strong>Proprietário:</strong> {props.proprietario}</p>
             </div>
           </div>
         </div> 
