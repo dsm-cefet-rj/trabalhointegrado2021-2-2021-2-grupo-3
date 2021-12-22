@@ -26,10 +26,6 @@ import LivrosAlugados from '../../components/LivrosAlugados'
                   titulo: "O poder do hábito",
                   descricao: "Este livro tem como objetivo descrever...",
                   img: livro4
-                },{
-                  titulo: "O poder do hábito",
-                  descricao: "Este livro tem como objetivo descrever...",
-                  img: livro4
                 }]
 
   export default function Cards (){
