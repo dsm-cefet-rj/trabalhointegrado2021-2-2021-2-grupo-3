@@ -1,11 +1,10 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import CardInfoAluguel from "../../components/CardInfoAluguel";
 import Input  from "../../components/Input";
 import livro from '../../img/livro4.jpg'
-import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 
-const livroInfoAlugado = {
+const livroAlugado = {
     titulo: "O Poder do Hábito",
     descricao: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, nventore! Iusto, at.",
     dataAluguel: "12/12/2021",
@@ -16,6 +15,11 @@ const livroInfoAlugado = {
 
 export default function DevoluçãoLivro() {
     const [formValues, setFormValues] = useState({})
+    const [livroInfoAlugado, setLivroAlugado] = useState({})
+
+    useEffect(() => {
+        setLivroAlugado(livroAlugado)
+    }, [])
     
     const handleInputChange = (e) => {
         const {name, value} = e.target
@@ -27,13 +31,13 @@ export default function DevoluçãoLivro() {
         e.preventDefault()
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData)
-        const devolucaoData = Object.assign({}, livroInfoAlugado, data)
+        const devolucaoData = Object.assign(livroInfoAlugado, data)
         console.log(devolucaoData)
     }
 
     return(
         <>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
             rel="stylesheet" 
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
             crossorigin="anonymous"/>
