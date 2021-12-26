@@ -16,7 +16,7 @@ export default function DevoluçãoLivro() {
     const handleInputChange = (e) => {
         const {name, value} = e.target
         console.log("name: "+name + " value: "+ value)
-        setFormValues({...formValues, [name]: value})
+        setFormValues({[name]: value})
     }
 
     const handlesubmit = (e) => {
