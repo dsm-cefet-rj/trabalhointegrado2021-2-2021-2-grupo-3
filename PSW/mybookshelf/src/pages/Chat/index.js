@@ -1,29 +1,11 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Container_chat from "../../components/Container_chat";
-import pingu from "../../img/pingu.jpg";
 import rino from "../../img/rino.jpg";
-import hipo from "../../img/hipo.png";
 import sapin from "../../img/sapin.jpg";
+import { Header } from "../../components/Header";
 
 
-const var_chat = [{
-    className: "container",
-    img: pingu,
-    msg: "mensagem teste",
-    hora: "11:30"
-},
-{
-    className: "container darker",
-    img: rino,
-    msg: "mensagem teste",
-    hora: "11:31"
-},
-{
-    className: "container",
-    img: hipo,
-    msg: "mensagem teste",
-    hora: "11:32"
-},
+const var_chat = [
 {
     className: "container darker",
     img: sapin,
@@ -32,20 +14,38 @@ const var_chat = [{
 }]
 
 export default function Chat(){
+    const [chat_state, set_chat_state] = useState([])
+    const [chat_conversa, set_chat_conversa] = useState([])
+    var novaHora = new Date()
+    useEffect(() => {
+        set_chat_conversa(var_chat)
+    },[])
     function FChat(e) {
         e.preventDefault()
         const chat_data = new FormData(e.target)
         const ref_chat_data = Object.fromEntries(chat_data)
         console.log(ref_chat_data)
+        const envia_mensagem = {
+            className: "container",
+            img: rino,
+            hora: novaHora.getHours()
+        }
+        var_chat.push(Object.assign(ref_chat_data, envia_mensagem))
+        set_chat_conversa(var_chat)
+        set_chat_state("")
     }
     return(
+        <div>
+            <Header/>
         <div className="chat">
-        <Container_chat chat={var_chat}/>
+        <Container_chat chat={chat_conversa}/>
         <form onSubmit={(e) => {FChat(e)}}>
-            <textarea placeholder="" name="mensagem"></textarea>
+            <textarea value={chat_state} onChange={e => set_chat_state(e.target.value)}
+ placeholder="" name="msg"></textarea>
             <i class="bi bi-images"></i>
             <input type="submit" href="#" class= "btn btn-primary" value="Enviar"/>
         </form>
+        </div>
         </div>
     );
 }
