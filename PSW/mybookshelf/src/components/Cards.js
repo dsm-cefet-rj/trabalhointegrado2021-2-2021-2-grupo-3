@@ -11,7 +11,7 @@ import {
      return (
       <div className="">
       <div className=" table-responsive-stack">
-      <p className="livrosAlugados">Livros Alugados</p>
+      <p className="livrosAlugados">Livros para Alugar</p>
       <table>
         <tr>
         {livros.map( livro => {

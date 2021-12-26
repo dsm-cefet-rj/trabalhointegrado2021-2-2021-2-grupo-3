@@ -5,9 +5,13 @@ import {
     Route,
     Link
   } from "react-router-dom";
-  import "../css/styles_principal.css"
+import "../css/styles_principal.css";
+import {useDispatch} from "react-redux";
+import { agendarDevolução } from '../store/actions/devolução.action';
+
 
  export default ({livros}) => {
+     const dispatch = useDispatch()
      return (
       <div className="">
       <div className=" table-responsive-stack">
@@ -21,7 +25,13 @@ import {
             <div className="card-body">
               <h5 className="card-title">{livro.titulo}</h5>
               <p className="card-text">{livro.descricao}</p>
-              <Link to="/DevolverLivro" className="btn btn-primary">Devolver</Link>
+              <Link 
+                to="/DevolverLivro" 
+                className="btn btn-primary"
+                onClick={() => dispatch(agendarDevolução(livro))}
+              >
+                Devolver
+              </Link>
             </div>
           </div>
         </th>

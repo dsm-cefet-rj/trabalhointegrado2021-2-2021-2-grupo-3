@@ -1,19 +1,11 @@
 import React, {useState, useEffect} from "react";
 import CardInfoAluguel from "../../components/CardInfoAluguel";
 import Input  from "../../components/Input";
-import livro from '../../img/livro4.jpg'
-import { Header } from '../../components/Header'
-
-const livroAlugado = {
-    titulo: "O Poder do Hábito",
-    descricao: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, nventore! Iusto, at.",
-    dataAluguel: "12/12/2021",
-    proprietario: "João das Neves",
-    img: livro
-}
-
+import { Header } from '../../components/Header';
+import {useSelector} from 'react-redux';
 
 export default function DevoluçãoLivro() {
+    const livroAlugado = useSelector(state => state.devolucao)
     const [formValues, setFormValues] = useState({})
     const [livroInfoAlugado, setLivroAlugado] = useState({})
 

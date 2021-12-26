@@ -13,20 +13,28 @@ import LivrosAlugados from '../../components/LivrosAlugados'
  const livros = [{
                   titulo: "Gente Única",
                   descricao: "Este livro tem como objetivo descrever...",
+                  dataAluguel: "45/12/2021",
+                  proprietario: "Marquinhos DJ",
                   img: livro1
                 }, {
                   titulo: "WILL",
                   descricao: "Este livro tem como objetivo descrever...",
+                  dataAluguel: "30/02/2021",
+                  proprietario: "Junin do Suco",
                   img: livro2
                 },{
                   titulo: "Código Limpo",
                   descricao: "Este livro tem como objetivo descrever...",
+                  dataAluguel: "22/10/2021",
+                  proprietario: "Miguel da Massa",
                   img: livro3
                 },{
-                  titulo: "O poder do hábito",
-                  descricao: "Este livro tem como objetivo descrever...",
+                  titulo: "O Poder do Hábito",
+                  descricao: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, nventore! Iusto, at.",
+                  dataAluguel: "12/12/2021",
+                  proprietario: "João das Neves",
                   img: livro4
-                }]
+              }]
 
   export default function Cards (){
         return( 
