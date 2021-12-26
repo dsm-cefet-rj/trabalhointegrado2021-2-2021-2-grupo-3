@@ -16,11 +16,12 @@ const var_chat = [
 export default function Chat(){
     const [chat_state, set_chat_state] = useState([])
     const [chat_conversa, set_chat_conversa] = useState([])
-    var novaHora = new Date()
+    
     useEffect(() => {
         set_chat_conversa(var_chat)
     },[])
-    function FChat(e) {
+    
+    function handleSubmit(e) {
         e.preventDefault()
         const chat_data = new FormData(e.target)
         const ref_chat_data = Object.fromEntries(chat_data)
@@ -28,7 +29,7 @@ export default function Chat(){
         const envia_mensagem = {
             className: "container",
             img: rino,
-            hora: novaHora.getHours()
+            hora: new Date().getHours()
         }
         var_chat.push(Object.assign(ref_chat_data, envia_mensagem))
         set_chat_conversa(var_chat)
@@ -37,15 +38,19 @@ export default function Chat(){
     return(
         <div>
             <Header/>
-        <div className="chat">
-        <Container_chat chat={chat_conversa}/>
-        <form onSubmit={(e) => {FChat(e)}}>
-            <textarea value={chat_state} onChange={e => set_chat_state(e.target.value)}
- placeholder="" name="msg"></textarea>
-            <i class="bi bi-images"></i>
-            <input type="submit" href="#" class= "btn btn-primary" value="Enviar"/>
-        </form>
-        </div>
+            <div className="chat">
+                <Container_chat chat={chat_conversa}/>
+                <form onSubmit={(e) => {handleSubmit(e)}}>
+                    <textarea 
+                        value={chat_state} 
+                        onChange={e => set_chat_state(e.target.value)}
+                        placeholder="" 
+                        name="msg"
+                    ></textarea>
+                <i class="bi bi-images"></i>
+                <input type="submit" href="#" class= "btn btn-primary" value="Enviar"/>
+                </form>
+            </div>
         </div>
     );
 }

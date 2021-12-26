@@ -7,15 +7,9 @@ import {useSelector} from 'react-redux';
 export default function DevoluçãoLivro() {
     const livroAlugado = useSelector(state => state.devolucao)
     const [formValues, setFormValues] = useState({})
-    const [livroInfoAlugado, setLivroAlugado] = useState({})
-
-    useEffect(() => {
-        setLivroAlugado(livroAlugado)
-    }, [])
     
     const handleInputChange = (e) => {
         const {name, value} = e.target
-        console.log("name: "+name + " value: "+ value)
         setFormValues({[name]: value})
     }
 
@@ -23,7 +17,7 @@ export default function DevoluçãoLivro() {
         e.preventDefault()
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData)
-        const devolucaoData = Object.assign(livroInfoAlugado, data)
+        const devolucaoData = Object.assign(livroAlugado, data)
         console.log(devolucaoData)
     }
 
@@ -46,13 +40,7 @@ export default function DevoluçãoLivro() {
             <Header/>
             <div className="center">
                 <h1> Marcar Devolução </h1>
-                <CardInfoAluguel
-                    img={livroInfoAlugado.img}
-                    title={livroInfoAlugado.titulo}
-                    descricao={livroInfoAlugado.descricao}
-                    dataAluguel={livroInfoAlugado.dataAluguel}
-                    proprietario={livroInfoAlugado.proprietario}
-                />
+                <CardInfoAluguel livro={livroAlugado}/>
                 <form id="devolution-form" className="buttonDevolver" onSubmit={handlesubmit}>
                     <Input 
                         className="half-box spacing"

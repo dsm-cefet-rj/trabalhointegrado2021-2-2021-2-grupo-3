@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import Input from "../Input";
 import './FormCadastroUsuario.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-
 
 export default () => {
 

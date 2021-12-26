@@ -7,7 +7,7 @@ export default (props) => {
             <div className="obs">{props.obs}</div>
             <input 
                 type={props.type} 
-                name={props.id} 
+                name={props.id || props.name} 
                 id={props.id} 
                 placeholder={props.placeholder}
                 pattern={props.pattern}

@@ -5,6 +5,7 @@ import CadastroUsuario from './pages/CadastroUsuario';
 import DevoluçãoLivro from './pages/DevoluçãoLivro';
 import LivrosAlugados from './pages/LivrosAlugados';
 import Chat from './pages/Chat';
+import CadastroLivro from './pages/CadastroLivro';
 
 
 export default function MainRoutes () {
@@ -16,6 +17,7 @@ export default function MainRoutes () {
             <Route path="/DevolverLivro" element={<DevoluçãoLivro/>}/>
             <Route path="/Chat" element={<Chat/>}/>
             <Route path="/LivrosAlugados" element={<LivrosAlugados/>}/>
+            <Route path="/CadastrarLivro" element={<CadastroLivro/>}/>
         </Routes>
     );
 };
