@@ -14,6 +14,7 @@ export default (props) => {
                 title={props.title} 
                 required={props.required}
                 onChange={props.onChange}
+                accept={props.accept}
                 value={props.value}
             />
         </div>

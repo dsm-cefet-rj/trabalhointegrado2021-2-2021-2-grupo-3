@@ -14,12 +14,13 @@ const inforEx = {
 export default function () {
     const dispatch = useDispatch()
     const [formValues, setFormValues] = useState({})
+    const [img, setImg] = useState('')
     
     const handleSubmit = (e) =>  {
         e.preventDefault()
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData)
-
+        /*data.img = img*/
         const temp = Object.assign(data,inforEx)
 
         console.log(data)
@@ -33,7 +34,7 @@ export default function () {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} >
                 <Input
                     className="full-box"
                     label="Nome do Livro"
@@ -82,6 +83,14 @@ export default function () {
                     id="edicao"
                     onChange={handleInputChange}
                     value={formValues.edicao || ''}
+                />
+                <Input
+                    className="half-box"
+                    placeholder="Insira a imagem do livro"
+                    type="file"
+                    accept="image/png, image/jpeg"
+                    id="img"
+                    onChange={(e) => setImg(e.target.files[0])}
                 />
                 <div class="full-box">
                     <input type="submit" value="Cadastrar" id="btn-submit"/>
