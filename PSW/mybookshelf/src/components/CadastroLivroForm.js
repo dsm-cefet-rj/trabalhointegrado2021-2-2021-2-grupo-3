@@ -3,6 +3,7 @@ import Input from './Input';
 import {useDispatch} from 'react-redux';
 import { cadastrarLivro } from "../store/actions/cadastroLivro.action";
 
+
 import livro1 from '../img/livro1.jpg'
 
 const inforEx = {
@@ -32,7 +33,7 @@ export default function () {
     }
 
     return (
-        <>
+        <div id="main-container">
             <form onSubmit={handleSubmit}>
                 <Input
                     className="full-box"
@@ -87,6 +88,6 @@ export default function () {
                     <input type="submit" value="Cadastrar" id="btn-submit"/>
                 </div>
             </form>
-        </>
+        </div>
     )
 }
