@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import CardInfoAluguel from "../../components/CardInfoAluguel";
 import Input  from "../../components/Input";
 import { Header } from '../../components/Header';

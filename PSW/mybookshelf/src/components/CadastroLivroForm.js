@@ -1,15 +1,18 @@
 import React, {useState} from "react";
-import Input from './Input'
+import Input from './Input';
+import {useDispatch} from 'react-redux';
+import { cadastrarLivro } from "../store/actions/cadastroLivro.action";
 
-const ex = {
-    titulo: "Gente Única",
-    descricao: "Este livro tem como objetivo descrever...",
+import livro1 from '../img/livro1.jpg'
+
+const inforEx = {
     dataAluguel: "45/12/2021",
     proprietario: "Marquinhos DJ",
-    img: "livro1"
+    img: livro1
   }
 
 export default function () {
+    const dispatch = useDispatch()
     const [formValues, setFormValues] = useState({})
     
     const handleSubmit = (e) =>  {
@@ -17,7 +20,10 @@ export default function () {
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData)
 
+        const temp = Object.assign(data,inforEx)
+
         console.log(data)
+        dispatch(cadastrarLivro(temp))
     }
 
     const handleInputChange = (e) => {

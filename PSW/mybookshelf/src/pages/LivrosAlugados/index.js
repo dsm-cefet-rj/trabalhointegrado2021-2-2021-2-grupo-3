@@ -1,16 +1,17 @@
-import React from 'react'
-import { Footer } from '../../components/Footer'
-import { Header } from '../../components/Header'
+import React from 'react';
+import { Footer } from '../../components/Footer';
+import { Header } from '../../components/Header';
 
 import livro1 from '../../img/livro1.jpg'
 import livro2 from '../../img/livro2.jpg'
 import livro3 from '../../img/livro3.jpg'
 import livro4 from '../../img/livro4.jpg'
 
-import LivrosAlugados from '../../components/LivrosAlugados'
+import LivrosAlugados from '../../components/LivrosAlugados';
+import {useSelector} from 'react-redux';
 
 
- const livros = [{
+ /* const livros = [{
                   titulo: "Gente Única",
                   descricao: "Este livro tem como objetivo descrever...",
                   dataAluguel: "45/12/2021",
@@ -34,9 +35,11 @@ import LivrosAlugados from '../../components/LivrosAlugados'
                   dataAluguel: "12/12/2021",
                   proprietario: "João das Neves",
                   img: livro4
-              }]
+              }] */
 
   export default function Cards (){
+        const livros = useSelector(state => state.cadastroLivro)
+          
         return( 
         <>
           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
