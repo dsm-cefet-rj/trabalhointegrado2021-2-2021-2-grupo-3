@@ -40,7 +40,7 @@ import { agendarDevolução } from '../store/actions/devolução.action';
         }
         </tr>
        </table> 
-          <Link to="/" className="btn btn-primary">Ver mais livros alugados</Link>   
+          {/* <Link to="/" className="btn btn-primary">Ver mais livros alugados</Link>    */}
       </div>      
       </div>
        )

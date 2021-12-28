@@ -47,17 +47,17 @@ export class Header extends React.Component{
                             <li className="nav-item">
                                 <Link to="/CadastroUsuario" className="nav-link third-color" > Perfil do usuario</Link>
                             </li>
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <Link to="/" className="nav-link third-color" > Alugar </Link>
-                            </li>
+                            </li> */}
                             <li className="nav-item">
                                 <Link to="/LivrosAlugados" className="nav-link third-color" > Livros alugados </Link>
                             </li>
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <Link to="/DevolverLivro" className="nav-link third-color" > Devolver </Link>
-                            </li>
+                            </li> */}
                             <li className="nav-item">
-                                <Link to="/CadastrarLivro" className="nav-link third-color" > Cadastrar livro </Link>
+                                <Link to="/AlugarLivro" className="nav-link third-color" > Alugar Livro </Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/Chat" className="nav-link third-color" > Chat </Link>

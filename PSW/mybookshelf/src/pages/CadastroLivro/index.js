@@ -19,7 +19,7 @@ export default function CriaçãoLivros() {
             crossorigin="anonymous"> </script>
 
             <Header/>
-            <h2>Cadastrar livro</h2>
+            
             <CadastroLivroForm/>
         </>
     )

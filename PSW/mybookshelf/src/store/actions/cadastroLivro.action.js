@@ -4,3 +4,9 @@ export function cadastrarLivro(livro) {
         payload: [livro]
     }
 }
+export function removerLivro(livro) {
+    return {
+        type: "removerLivro",
+        payload: [livro]
+    }
+}

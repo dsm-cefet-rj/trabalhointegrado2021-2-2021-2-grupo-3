@@ -3,32 +3,13 @@ import  Cards  from '../../components/Cards'
 import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 import { Link, useHistory , useParams} from 'react-router-dom';
-import livro1 from '../../img/livro1.jpg'
-import livro2 from '../../img/livro2.jpg'
-import livro3 from '../../img/livro3.jpg'
-import livro4 from '../../img/livro4.jpg'
 
 
-const livros = [{
-    titulo: "Gente Única",
-    descricao: "Este livro tem como objetivo descrever...",
-    img: livro1
-  }, {
-    titulo: "WILL",
-    descricao: "Este livro tem como objetivo descrever...",
-    img: livro2
-  },{
-    titulo: "Código Limpo",
-    descricao: "Este livro tem como objetivo descrever...",
-    img: livro3
-  },{
-    titulo: "O poder do hábito",
-    descricao: "Este livro tem como objetivo descrever...",
-    img: livro4
-  }]
+import { useSelector } from "react-redux"
+
 
 export default function AluguelLivros (){
-           
+      const livros = useSelector(state => state.cadastroLivro)     
     return(
     <>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>

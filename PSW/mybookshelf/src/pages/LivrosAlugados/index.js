@@ -38,8 +38,8 @@ import {useSelector} from 'react-redux';
               }] */
 
   export default function Cards (){
-        const livros = useSelector(state => state.cadastroLivro)
-          
+        const livros = useSelector(state => state.alugados)
+          console.log(livros)
         return( 
         <>
           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 

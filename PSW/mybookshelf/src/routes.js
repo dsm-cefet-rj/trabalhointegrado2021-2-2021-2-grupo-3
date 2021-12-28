@@ -17,7 +17,7 @@ export default function MainRoutes () {
             <Route path="/DevolverLivro" element={<DevoluçãoLivro/>}/>
             <Route path="/Chat" element={<Chat/>}/>
             <Route path="/LivrosAlugados" element={<LivrosAlugados/>}/>
-            <Route path="/CadastrarLivro" element={<CadastroLivro/>}/>
+            <Route path="/AlugarLivro" element={<CadastroLivro/>}/>
         </Routes>
     );
 };

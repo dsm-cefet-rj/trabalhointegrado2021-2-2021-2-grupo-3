@@ -21,11 +21,9 @@ export default function Chat(){
         const ref_chat_data = Object.fromEntries(chat_data)
         console.log(ref_chat_data)
         const envia_mensagem = {
-            className: "container",
             img: rino,
-            hora: new Date().getHours() + ":" + new Date().getMinutes()
         }
-        dispararMensagem(enviarMensagem(Object.assign(ref_chat_data, envia_mensagem)))
+        dispararMensagem(enviarMensagem(Object.assign( ref_chat_data, envia_mensagem)))
         console.log(recebeMsg)
         console.log(envia_mensagem)
         set_chat_state("")
@@ -56,7 +54,6 @@ export default function Chat(){
                         placeholder="" 
                         name="msg"
                     ></textarea>
-                <i class="bi bi-images"></i>
                 <input type="submit" href="#" class= "btn btn-primary" value="Enviar"/>
                 </form>
             </div>

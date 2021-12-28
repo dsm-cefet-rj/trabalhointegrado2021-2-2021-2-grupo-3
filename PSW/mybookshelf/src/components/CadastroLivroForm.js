@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Input from './Input';
 import {useDispatch} from 'react-redux';
+import { useNavigate } from "react-router-dom";
 import { cadastrarLivro } from "../store/actions/cadastroLivro.action";
 
 
@@ -8,7 +9,7 @@ import livro1 from '../img/livro1.jpg'
 
 const inforEx = {
     dataAluguel: "45/12/2021",
-    proprietario: "Marquinhos DJ",
+    proprietario: "Lucas",
     img: livro1
   }
 
@@ -16,6 +17,7 @@ export default function () {
     const dispatch = useDispatch()
     const [formValues, setFormValues] = useState({})
     const [img, setImg] = useState('')
+    const navigate = useNavigate()
     
     const handleSubmit = (e) =>  {
         e.preventDefault()
@@ -23,9 +25,11 @@ export default function () {
         const data = Object.fromEntries(formData)
         /*data.img = img*/
         const temp = Object.assign(data,inforEx)
+        alert("Livro cadastrado para alugar")
 
         console.log(data)
         dispatch(cadastrarLivro(temp))
+        navigate('/')
     }
 
     const handleInputChange = (e) => {
@@ -86,12 +90,21 @@ export default function () {
                     value={formValues.edicao || ''}
                 />
                 <Input
-                    className="half-box"
+                    className="full-box"
                     placeholder="Insira a imagem do livro"
                     type="file"
                     accept="image/png, image/jpeg"
                     id="img"
                     onChange={(e) => setImg(e.target.files[0])}
+                />
+                 <Input
+                    className="half-box"
+                    label="Preço para se alugar"
+                    type="number"
+                    placeholder="Digite o valor do aluguel"
+                    id="valorAluguel"
+                    onChange={handleInputChange}
+                    value={formValues.valorAluguel || ''}
                 />
                 <div class="full-box">
                     <input type="submit" value="Cadastrar" id="btn-submit"/>

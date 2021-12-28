@@ -2,12 +2,17 @@ import React, {useState} from "react";
 import CardInfoAluguel from "../../components/CardInfoAluguel";
 import Input  from "../../components/Input";
 import { Header } from '../../components/Header';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import { useNavigate } from "react-router-dom";
+import { enviarMensagem } from "../../store/actions/chat.action";
+import rino from "../../img/rino.jpg";
+
 
 export default function DevoluçãoLivro() {
     const livroAlugado = useSelector(state => state.devolucao)
     const [formValues, setFormValues] = useState({})
-    
+    const navigate = useNavigate()
+
     const handleInputChange = (e) => {
         const {name, value} = e.target
         setFormValues({[name]: value})
@@ -19,8 +24,14 @@ export default function DevoluçãoLivro() {
         const data = Object.fromEntries(formData)
         const devolucaoData = Object.assign(livroAlugado, data)
         console.log(devolucaoData)
+        const mensagem = {
+            msg: "Olá " + livroAlugado.proprietario + ", poderíamos marcar a devolução do "+livroAlugado.titulo+" para o dia: " + data.dataDevolução + "?",
+            img:rino}
+        dispatch(enviarMensagem(mensagem))
+        console.log(mensagem)
+        navigate('/Chat') ;
     }
-
+    const dispatch= useDispatch()
     return(
         <>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
