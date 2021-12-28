@@ -1,26 +1,20 @@
 import React, {useState, useEffect} from "react";
+import {useSelector, useDispatch} from "react-redux";
+import { enviarMensagem } from "../../store/actions/chat.action";
 import Container_chat from "../../components/Container_chat";
 import rino from "../../img/rino.jpg";
 import sapin from "../../img/sapin.jpg";
 import { Header } from "../../components/Header";
 
 
-const var_chat = [
-{
-    className: "container darker",
-    img: sapin,
-    msg: "mensagem teste",
-    hora: "11:33"
-}]
 
 export default function Chat(){
     const [chat_state, set_chat_state] = useState([])
     const [chat_conversa, set_chat_conversa] = useState([])
-    
-    useEffect(() => {
-        set_chat_conversa(var_chat)
-    },[])
-    
+    const recebeMsg = useSelector((state) => {
+        return state.msg 
+    })
+    const dispararMensagem = useDispatch()
     function handleSubmit(e) {
         e.preventDefault()
         const chat_data = new FormData(e.target)
@@ -29,17 +23,32 @@ export default function Chat(){
         const envia_mensagem = {
             className: "container",
             img: rino,
-            hora: new Date().getHours()
+            hora: new Date().getHours() + ":" + new Date().getMinutes()
         }
-        var_chat.push(Object.assign(ref_chat_data, envia_mensagem))
-        set_chat_conversa(var_chat)
+        dispararMensagem(enviarMensagem(Object.assign(ref_chat_data, envia_mensagem)))
+        console.log(recebeMsg)
+        console.log(envia_mensagem)
         set_chat_state("")
     }
     return(
+        
         <div>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+            rel="stylesheet" 
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+            crossorigin="anonymous"/>
+
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"/>
+
+            <link rel="stylesheet" href="css/styles_principal.css"/>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+    crossorigin="anonymous"> </script>
+
             <Header/>
             <div className="chat">
-                <Container_chat chat={chat_conversa}/>
+                <Container_chat chat={recebeMsg}/>
                 <form onSubmit={(e) => {handleSubmit(e)}}>
                     <textarea 
                         value={chat_state} 
