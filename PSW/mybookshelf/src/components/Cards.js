@@ -7,8 +7,7 @@ import {
   } from "react-router-dom";
   import "../css/styles_principal.css"
   import { useDispatch } from 'react-redux';
-  import {livroAlugar} from "../store/actions/livroAlugar.action"
-  import {removerLivro} from "../store/actions/cadastroLivro.action"
+  import { agendarDevolução } from '../store/actions/devolução.action';
 
  export default ({livros}) => {
    const dispatch = useDispatch()
@@ -25,11 +24,10 @@ import {
             <div className="card-body">
               <h5 className="card-title">{livro.titulo}</h5>
               <p className="card-text">{livro.descricao}</p>
-              <Link to="/LivrosAlugados" className="btn btn-primary" 
-                onClick={()=> {
-                  dispatch(livroAlugar(livro))
-                  dispatch(removerLivro(livro))
-                }}>Alugar</Link>
+              <Link to="/ConfirmarAluguel" className="btn btn-primary" 
+                className="btn btn-primary"
+                onClick={() => dispatch(agendarDevolução(livro))}
+              >Alugar</Link>
             </div>
           </div>
         </th>

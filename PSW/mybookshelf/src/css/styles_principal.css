@@ -52,6 +52,15 @@ background-color: #ece8ea;
     font-size: 2em;
 }
 
+.confirmarAluguel{
+    transform: translateY(-40px);
+    font-size: 2em;
+}
+
+.btnConfirmarAluguel{
+    transform: translate(54.3em, 20px);
+}
+
 .third-color{
     color: #ffffff;
 }

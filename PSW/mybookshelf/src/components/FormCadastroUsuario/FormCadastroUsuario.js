@@ -1,5 +1,11 @@
 import React, { useState } from "react";
 import './FormCadastroUsuario.css';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 export default () => {
 
@@ -22,6 +28,9 @@ export default () => {
 
     return(
         <div>
+            <Link to="/" className="navbar-brand third-color">
+                        <span>My bookshelf</span>
+            </Link>
             <meta charSet="UTF-8" />
             <title>Cadastro do Usuário</title>
             <link rel="stylesheet" href="css/styles_cadastro_livros.css" />

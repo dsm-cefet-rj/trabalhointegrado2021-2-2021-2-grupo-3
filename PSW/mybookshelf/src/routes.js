@@ -6,6 +6,7 @@ import DevoluçãoLivro from './pages/DevoluçãoLivro';
 import LivrosAlugados from './pages/LivrosAlugados';
 import Chat from './pages/Chat';
 import CadastroLivro from './pages/CadastroLivro';
+import ConfirmarAluguel from './pages/ConfirmacaoAluguel';
 
 
 export default function MainRoutes () {
@@ -18,6 +19,7 @@ export default function MainRoutes () {
             <Route path="/Chat" element={<Chat/>}/>
             <Route path="/LivrosAlugados" element={<LivrosAlugados/>}/>
             <Route path="/AlugarLivro" element={<CadastroLivro/>}/>
+            <Route path="/ConfirmarAluguel" element={<ConfirmarAluguel/>}/>
         </Routes>
     );
 };

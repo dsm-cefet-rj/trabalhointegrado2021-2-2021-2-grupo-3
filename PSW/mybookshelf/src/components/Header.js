@@ -57,7 +57,7 @@ export class Header extends React.Component{
                                 <Link to="/DevolverLivro" className="nav-link third-color" > Devolver </Link>
                             </li> */}
                             <li className="nav-item">
-                                <Link to="/AlugarLivro" className="nav-link third-color" > Alugar Livro </Link>
+                                <Link to="/AlugarLivro" className="nav-link third-color" > Cadastrar Livro </Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/Chat" className="nav-link third-color" > Chat </Link>
