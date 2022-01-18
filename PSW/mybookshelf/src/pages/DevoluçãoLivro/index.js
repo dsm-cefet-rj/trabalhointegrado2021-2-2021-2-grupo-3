@@ -13,6 +13,8 @@ export default function DevoluçãoLivro() {
     const [formValues, setFormValues] = useState({})
     const navigate = useNavigate()
 
+    console.log(livroAlugado)
+    
     const handleInputChange = (e) => {
         const {name, value} = e.target
         setFormValues({[name]: value})
@@ -22,7 +24,7 @@ export default function DevoluçãoLivro() {
         e.preventDefault()
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData)
-        const devolucaoData = Object.assign(livroAlugado, data)
+        const devolucaoData = Object.assign(livroAlugado.titulo, data)
         console.log(devolucaoData)
         const mensagem = {
             msg: "Olá " + livroAlugado.proprietario + ", poderíamos marcar a devolução do "+livroAlugado.titulo+" para o dia: " + data.dataDevolução + "?",

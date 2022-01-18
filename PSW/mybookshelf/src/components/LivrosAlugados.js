@@ -7,7 +7,7 @@ import {
   } from "react-router-dom";
 import "../css/styles_principal.css";
 import {useDispatch} from "react-redux";
-import { agendarDevolução } from '../store/actions/devolução.action';
+import { agendarDevolução } from '../store/slices/devoluçãoSlice';
 
 
  export default ({livros}) => {

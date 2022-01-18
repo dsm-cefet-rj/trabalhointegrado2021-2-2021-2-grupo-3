@@ -13,7 +13,7 @@ import { useSelector } from "react-redux"
 
 export default function AluguelLivros (){
     const dispatch = useDispatch()
-    const livroAlugado = useSelector(state => state.devolucao)    
+    const livroAlugado = useSelector(state => state.alugados)    
     return(
     <>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
@@ -34,7 +34,7 @@ export default function AluguelLivros (){
             <div>
                 <Header/><br/><br/><br/><br/><br/>
                 <ConfirmarAluguel livro={livroAlugado}/>
-                <Footer/>
+               
             </div>
         </div>
     </>

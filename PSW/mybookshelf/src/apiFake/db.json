@@ -1,0 +1,24 @@
+{
+    "livros": [
+        {   
+            "id_livro": "123",
+            "titulo": "O poder do hábito",
+            "descricao": "Este livro tem como objetivo descrever...",
+            "id_proprietario": "12234",
+            "apelido_proprietario": "Jorge"
+          }
+    ],
+    "livrosAlugados": [
+        {   
+            "id_aluguel": "124",
+            "titulo": "O poder do hábito",
+            "descricao": "Este livro tem como objetivo descrever...",
+            "id_proprietario": "12234",
+            "apelido_proprietario": "Paulo",
+            "id_locatario": "11135",
+            "apelido_locatario": "marquinhos Dj",
+            "dataAluguel": "20/06/2021"
+          }
+    ],
+    "mensagens": []
+}
