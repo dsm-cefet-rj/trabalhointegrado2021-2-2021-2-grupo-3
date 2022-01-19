@@ -4,8 +4,6 @@ import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 import { Link, useHistory , useParams} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import {livroAlugar} from "../../store/actions/livroAlugar.action"
-import {removerLivro} from "../../store/actions/cadastroLivro.action"
 
 
 import { useSelector } from "react-redux"
