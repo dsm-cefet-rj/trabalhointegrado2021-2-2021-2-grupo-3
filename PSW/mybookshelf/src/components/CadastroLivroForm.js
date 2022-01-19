@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Input from './Input';
 import {useDispatch} from 'react-redux';
 import { useNavigate } from "react-router-dom";
-import { cadastrarLivro } from "../store/actions/cadastroLivro.action";
+import { cadastrarLivro } from "../store/slices/cadastroLivroSlice";
 
 
 import livro1 from '../img/livro1.jpg'

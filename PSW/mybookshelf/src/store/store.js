@@ -1,14 +1,14 @@
 import {createStore, combineReducers} from "redux";
-import cadastroLivroReducer from "./reducers/cadastroLivro.reducer";
-import chatReducer from "./reducers/chat.reducer";
-import livroAlugar from "./reducers/livrosAlugar.reducer"
+import chatReducer from "./slices/chatSlice";
 import devoluçãoReducer from "./slices/devoluçãoSlice";
+import livrosAlugarReducer from "./slices/livrosAlugarSlice";
+import cadastroLivroReducer from "./slices/cadastroLivroSlice";
 
 const rootReducer = combineReducers({
     devolucao: devoluçãoReducer,
     cadastroLivro: cadastroLivroReducer,
     msg: chatReducer,
-    alugados: livroAlugar,
+    alugados: livrosAlugarReducer,
 })
 
 const store = createStore(rootReducer)

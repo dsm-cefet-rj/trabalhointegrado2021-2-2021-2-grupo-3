@@ -3,10 +3,9 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
-  } from "react-router-dom";
-import {livroAlugar} from "../store/actions/livroAlugar.action"
-import {removerLivro} from "../store/actions/cadastroLivro.action"
+    Link } from "react-router-dom";
+import { livroAlugar } from "../store/slices/livrosAlugarSlice"; 
+import { removerLivro } from "../store/slices/cadastroLivroSlice";
 import { useDispatch } from 'react-redux';
 
 export default ({livro}) => {
@@ -34,8 +33,7 @@ export default ({livro}) => {
                 <tr>
                     <Link to="/LivrosAlugados" className= "btn btn-primary btnConfirmarAluguel" 
                     onClick={()=> {
-                    dispatch(livroAlugar(livro))
-                    dispatch(removerLivro(livro))
+                      dispatch(removerLivro(livro))
                     }}>Confirmar Aluguel</Link>
                 </tr>
             </table> 

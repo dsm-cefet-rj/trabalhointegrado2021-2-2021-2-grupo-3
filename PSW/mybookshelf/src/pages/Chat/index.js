@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {useSelector, useDispatch} from "react-redux";
-import { enviarMensagem } from "../../store/actions/chat.action";
+import { enviarMensagem } from "../../store/slices/chatSlice";
 import Container_chat from "../../components/Container_chat";
 import rino from "../../img/rino.jpg";
 import sapin from "../../img/sapin.jpg";

@@ -4,7 +4,7 @@ import Input  from "../../components/Input";
 import { Header } from '../../components/Header';
 import {useSelector, useDispatch} from 'react-redux';
 import { useNavigate } from "react-router-dom";
-import { enviarMensagem } from "../../store/actions/chat.action";
+import { enviarMensagem } from "../../store/slices/chatSlice";
 import rino from "../../img/rino.jpg";
 
 

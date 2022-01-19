@@ -4,16 +4,6 @@ import livro3 from '../../img/livro3.jpg'
 import livro4 from '../../img/livro4.jpg'
 
 const livrosIniciais = [{
-//     titulo: "Gente Única",
-//     descricao: "Este livro tem como objetivo descrever...",
-//     proprietario: "Gabriel",
-//     img: livro1
-//   }, {
-//     titulo: "WILL",
-//     descricao: "Este livro tem como objetivo descrever...",
-//     proprietario: "Luisa",
-//     img: livro2
-//   },{
     titulo: "Código Limpo",
     descricao: "Este livro tem como objetivo descrever...",
     proprietario: "Lucas",
