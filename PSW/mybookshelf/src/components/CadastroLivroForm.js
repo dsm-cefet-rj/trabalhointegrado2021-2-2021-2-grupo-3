@@ -8,6 +8,7 @@ import { cadastrarLivro } from "../store/slices/cadastroLivroSlice";
 import livro1 from '../img/livro1.jpg'
 
 const inforEx = {
+    id: Math.floor(Math.random() * 101),
     dataAluguel: "45/12/2021",
     proprietario: "Lucas",
     img: livro1

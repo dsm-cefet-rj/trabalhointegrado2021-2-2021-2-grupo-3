@@ -6,18 +6,20 @@ import {baseUrl} from '../../baseUrl'
 
 const livrosAdapter = createEntityAdapter();
 
-const initialState = livrosAdapter.getInitialState({
-    status: 'not_loaded',
-    error: null
-});
+// const initialState = livrosAdapter.getInitialState({
+//     status: 'not_loaded',
+//     error: null
+// });
 
 const livrosIniciais = [{
+    id: 123,
     titulo: "O poder do hábito",
     descricao: "Este livro tem como objetivo descrever...",
     proprietario: "Jorge",
     dataAluguel: "20/06/2021",
     img: livro4
   },{
+    id: 142,
     titulo: "Código Limpo",
     descricao: "Este livro tem como objetivo descrever...",
     proprietario: "Lucas",
@@ -48,7 +50,11 @@ function cadastrarLivroReducer (state, livro) {
 }
 
 function removerLivroReducer (state, livro) {
-    return state.filter(p => p != livro) 
+    const teste = state.filter(p => p.id != livro.id) 
+    debugger
+    console.log(teste)
+    return teste
+    
 }
 
 export const cadastroLivroSlice = createSlice({

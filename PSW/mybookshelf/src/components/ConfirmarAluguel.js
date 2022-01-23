@@ -33,6 +33,7 @@ export default ({livro}) => {
                 <tr>
                     <Link to="/LivrosAlugados" className= "btn btn-primary btnConfirmarAluguel" 
                     onClick={()=> {
+                      dispatch(livroAlugar(livro))
                       dispatch(removerLivro(livro))
                     }}>Confirmar Aluguel</Link>
                 </tr>

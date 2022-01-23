@@ -7,7 +7,7 @@ import {
   } from "react-router-dom";
   import "../css/styles_principal.css"
   import { useDispatch } from 'react-redux';
-  import { livroAlugar } from '../store/slices/livrosAlugarSlice';
+  import { confirmacao } from '../store/slices/confirmarAluguelSlice';
 
  export default ({livros}) => {
    const dispatch = useDispatch()
@@ -27,7 +27,7 @@ import {
               <Link to="/ConfirmarAluguel" className="btn btn-primary" 
                 className="btn btn-primary"
                 onClick={() => { 
-                  dispatch(livroAlugar(livro))
+                  dispatch(confirmacao(livro))
                  }}
               >Alugar</Link>
             </div>
