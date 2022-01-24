@@ -4,12 +4,14 @@ const mensagem = [{
     container: "container",
     hora: new Date().getHours() + ":" + new Date().getMinutes(),
 }]
+
+var chatmsg = require('../bdLocal/chat.json')
 var express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send(mensagem);
+  res.send(chatmsg);
 });
 
 module.exports = router;

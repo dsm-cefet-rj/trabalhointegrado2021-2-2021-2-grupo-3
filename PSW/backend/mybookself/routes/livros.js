@@ -1,26 +1,28 @@
-
-const livrosIniciais = [{
-  id: 123,
-  titulo: "O poder do hábito",
-  descricao: "Este livro tem como objetivo descrever...",
-  proprietario: "Jorge",
-  dataAluguel: "20/06/2021",
-  img: "http://localhost:3000/images/livro4.jpg"
-},{
-  id: 142,
-  titulo: "Código Limpo",
-  descricao: "Este livro tem como objetivo descrever...",
-  proprietario: "Lucas",
-  dataAluguel: "10/05/2021",
-  img: "http://localhost:3000/images/livro3.jpg"
-}]
-
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send(livrosIniciais);
+const fs = require('fs')
+var livrosJson = require('../bdLocal/livros.json')
+
+/* GET informações dos livros. */
+router.get('/', (req, res, next) => {
+  res.status(200).send(livrosJson);
 });
+
+router.post('/cadastro', (req, res, next) => {
+  livrosJson.livros.push(req.body) 
+  
+  const data = JSON.stringify(livrosJson) // Converte o Json 
+  fs.writeFile('./bdLocal/livros.json', data, (err) => { // sobrescreve o arquivo livros.json 
+    if (err) throw err;
+    console.log('Livro Cadastro no livros.json');
+  })
+  
+  res.status(200).send("Livro cadastrado")
+})
+
+router.delete('/Alugado', (req, res, next) => {
+  res.send("não funcionado ainda")
+})
 
 module.exports = router;
