@@ -30,6 +30,10 @@ const livrosIniciais = []
     return await httpPut(`${baseUrl}/livros/${livro.id}`, livro);
   });
 
+function carregarCatalogoReducer (state, livros) {
+    return livros
+}
+
 
 function cadastrarLivroReducer (state, livro) {
     return state.concat(livro)
@@ -48,6 +52,7 @@ export const cadastroLivroSlice = createSlice({
     reducers: {
         cadastrarLivro: (state, action) => cadastrarLivroReducer(state, action.payload),
         removerLivro: (state, action) => removerLivroReducer(state, action.payload),
+        carregarCatalogo: (state, action) => carregarCatalogoReducer(state, action.payload),
         setStatus: (state, action) => {state.status = action.payload}
     },
     // extraReducers: {
@@ -81,5 +86,5 @@ export const updateLivrosServer = createAsyncThunk('livros/updateLivrosServer',
 
 
 
-export const { cadastrarLivro, removerLivro } = cadastroLivroSlice.actions
+export const { cadastrarLivro, removerLivro, carregarCatalogo } = cadastroLivroSlice.actions
 export default cadastroLivroSlice.reducer

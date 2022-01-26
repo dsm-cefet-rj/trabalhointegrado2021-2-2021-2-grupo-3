@@ -5,36 +5,30 @@ import { Header } from '../../components/Header'
 import { useEffect } from 'react'
 import axios from 'axios'
 import { Link, useHistory , useParams} from 'react-router-dom';
-import { cadastrarLivro } from '../../store/slices/cadastroLivroSlice'
+import { carregarCatalogo } from '../../store/slices/cadastroLivroSlice'
 
 import { useSelector, useDispatch } from "react-redux"
 
+var cont = 0
+    async function pegaDados () {
+        if (cont == 0) {
+        try {
+           const response = axios.get('http://localhost:3000/livros')
+           cont += 1;
+           return (await response).data.livros
+        }
+        catch (error) {
+            console.error(error);
+        }
+        
+        }
+    }
 
 export default function AluguelLivros (){
     const dispatch = useDispatch()
-    async function pegaDados () {
-        var dados 
-        await axios.get('http://localhost:3000/livros')
-        .then(res => { dados = res.data.livros })
-        .catch(function(error) {
-            console.log(error)
-        })
-
-        dados.map(livro => dispatch(cadastrarLivro(livro)))
-    }
-    
-    useEffect( () => {
-        async function pegaDados () {
-            var dados 
-            await axios.get('http://localhost:3000/livros')
-            .then(res => { dados = res.data.livros })
-            .catch(function(error) {
-                console.log(error)
-            })
-    
-            dados.map(livro => dispatch(cadastrarLivro(livro)))
-        }
-    } )
+    pegaDados().then(response => {
+        dispatch(carregarCatalogo(response))
+    })
 
     const livros = useSelector(state => state.cadastroLivro)     
 
