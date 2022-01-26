@@ -20,6 +20,8 @@ router.get('/', (req, res, next) => {
 router.post('/cadastro', (req, res, next) => {
   livrosJson.livros.push(req.body) 
   SalvarJson(livrosJson)
+  res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Content-Type', 'application/json');
   res.status(200).send("Livro cadastrado")
 })
 
