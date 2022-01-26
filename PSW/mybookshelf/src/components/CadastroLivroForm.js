@@ -3,13 +3,13 @@ import Input from './Input';
 import {useDispatch} from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { cadastrarLivro } from "../store/slices/cadastroLivroSlice";
+import axios from 'axios';
 
 
 import livro1 from '../img/livro1.jpg'
 
 const inforEx = {
     id: Math.floor(Math.random() * 101),
-    dataAluguel: "45/12/2021",
     proprietario: "Lucas",
     img: livro1
   }
@@ -30,6 +30,13 @@ export default function () {
 
         console.log(data)
         dispatch(cadastrarLivro(temp))
+        axios.post('http://localhost:3000/livros/cadastro', {temp})
+        .then(function(response){
+            console.log(response)
+
+        }).catch(function(error) {
+            console.log(error)
+        })
         navigate('/')
     }
 

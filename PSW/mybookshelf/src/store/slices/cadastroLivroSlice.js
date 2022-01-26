@@ -37,7 +37,6 @@ function cadastrarLivroReducer (state, livro) {
 
 function removerLivroReducer (state, livro) {
     const teste = state.filter(p => p.id != livro.id) 
-    debugger
     console.log(teste)
     return teste
     
