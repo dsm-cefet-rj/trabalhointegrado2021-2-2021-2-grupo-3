@@ -2,14 +2,42 @@ import React from 'react'
 import  Cards  from '../../components/Cards'
 import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
+import { useEffect } from 'react'
+import axios from 'axios'
 import { Link, useHistory , useParams} from 'react-router-dom';
+import { cadastrarLivro } from '../../store/slices/cadastroLivroSlice'
 
-
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 
 
 export default function AluguelLivros (){
-      const livros = useSelector(state => state.cadastroLivro)     
+    const dispatch = useDispatch()
+    async function pegaDados () {
+        var dados 
+        await axios.get('http://localhost:3000/livros')
+        .then(res => { dados = res.data.livros })
+        .catch(function(error) {
+            console.log(error)
+        })
+
+        dados.map(livro => dispatch(cadastrarLivro(livro)))
+    }
+    
+    useEffect( () => {
+        async function pegaDados () {
+            var dados 
+            await axios.get('http://localhost:3000/livros')
+            .then(res => { dados = res.data.livros })
+            .catch(function(error) {
+                console.log(error)
+            })
+    
+            dados.map(livro => dispatch(cadastrarLivro(livro)))
+        }
+    } )
+
+    const livros = useSelector(state => state.cadastroLivro)     
+
     return(
     <>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>

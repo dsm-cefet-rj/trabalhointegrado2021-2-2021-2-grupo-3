@@ -30,7 +30,7 @@ export default function () {
 
         console.log(data)
         dispatch(cadastrarLivro(temp))
-        axios.post('http://localhost:3000/livros/cadastro', {temp})
+        axios.post('http://localhost:3000/livros/cadastro', temp)
         .then(function(response){
             console.log(response)
 
