@@ -13,6 +13,18 @@
             "descricao": "Este livro tem como objetivo descrever...",
             "proprietario": "Lucas",
             "img": "http://localhost:3000/images/livro3.jpg"
+        },
+        {
+            "titulo": "Fellipe",
+            "descricao": "ddddddddddddddddd",
+            "editora": "sssssssssss",
+            "dataPublicacao": "2022-01-13",
+            "escritor": "aaaaaaaaaa",
+            "edicao": "aaaaaaaaaa",
+            "img": "/static/media/livro1.0013cf41.jpg",
+            "valorAluguel": "1000",
+            "id": 28,
+            "proprietario": "Lucas"
         }
     ],
     "Alugados": []

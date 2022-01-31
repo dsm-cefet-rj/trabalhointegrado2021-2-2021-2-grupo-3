@@ -5,9 +5,17 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 
+const mongoose = require('mongoose')
+
 var indexRouter = require('./routes/index');
 var livrosRouter = require('./routes/livros');
 var chatRouter = require('./routes/chat')
+
+const url = "mongodb://localhost:27017/test"
+const connect = mongoose.connect(url) 
+
+connect.then( db => console.log("Mongo conectado"))
+.catch( err => console.log(err))
 
 var app = express();
 

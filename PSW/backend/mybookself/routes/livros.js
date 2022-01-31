@@ -1,43 +1,34 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const livro = require('../models/livrosModel') 
 
-const fs = require('fs')
-var livrosJson = require('../bdLocal/livros.json')
-
-function SalvarJson (livrosJson) {
-  const data = JSON.stringify(livrosJson) // Converte o Json 
-  fs.writeFile('./bdLocal/livros.json', data, (err) => { // sobrescreve o arquivo livros.json 
-    if (err) throw err;
-    console.log('Livro Cadastro no livros.json');
-  })
-}
+const fs = require('fs');
+const uploadImg = require('../middleware/multer');
 
 /* GET informações dos livros. */
-router.get('/', (req, res, next) => {
-  res.status(200).send(livrosJson);
+router.get('/', async (req, res, next) => {
+  const livrosinfo =  await livro.find();
+  res.status(200).send(livrosinfo) 
 });
 
-router.post('/cadastro', (req, res, next) => {
-  livrosJson.livros.push(req.body) 
-  SalvarJson(livrosJson)
-  res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
-  res.setHeader('Content-Type', 'application/json');
+router.post('/cadastro', uploadImg,(req, res, next) => {
+  const { titulo, proprietario, dataPublicacao, 
+          descricao, edicao, editora, escritor, 
+          valorAluguel } = req.body
+  
+  const novoLivro = new livro({
+      titulo, proprietario, dataPublicacao,
+      descricao, edicao, editora, escritor,
+      img: "http://localhost:3000/images/" + req.file.filename, 
+      valorAluguel
+  })
+
+  novoLivro.save()
   res.status(200).send("Livro cadastrado")
 })
 
 router.post('/Alugado', (req, res, next) => {
-  const { idLivro, idPropietario, idLocatario } = req.body
-  const data = {
-    idAluguel: Math.floor(Math.random() * 100000),
-    idLivro, 
-    idPropietario, 
-    idLocatario
-  }
 
-  livrosJson.Alugados.push(data)
-  
-  SalvarJson(livrosJson)
-  
   res.send("livro Alugado")
 })
 
