@@ -47,6 +47,19 @@ background-color: #ece8ea;
     color: #7a7a7a;
 }
 
+.Chat_title{
+    color: #050505;
+    font-weight: 700;
+    font-size: 1.5em;
+    transform: translateX(15em);
+}
+
+.Chat_To{
+    color: #050505;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
 .livrosAlugados{
     transform: translate(10px, 80px);
     font-size: 2em;

@@ -65,8 +65,9 @@ export default function Chat(){
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
     crossorigin="anonymous"> </script>
 
-            <Header/>
+            <Header/>           
             <div className="chat">
+                <p className="Chat_title">Chat My Bookshelf</p>
                 <Container_chat chat={recebeMsg}/>
                 <form onSubmit={(e) => {handleSubmit(e)}}>
                     <textarea 
