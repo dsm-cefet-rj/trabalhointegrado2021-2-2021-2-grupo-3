@@ -1,4 +1,5 @@
 import {createStore, combineReducers} from "redux";
+import thunkMiddleware from 'redux-thunk';
 import chatReducer from "./slices/chatSlice";
 import devoluçãoReducer from "./slices/devoluçãoSlice";
 import livrosAlugarReducer from "./slices/livrosAlugarSlice";

@@ -1,43 +1,35 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
-
-import livro1 from '../../img/livro1.jpg'
-import livro2 from '../../img/livro2.jpg'
-import livro3 from '../../img/livro3.jpg'
-import livro4 from '../../img/livro4.jpg'
-
 import LivrosAlugados from '../../components/LivrosAlugados';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import axios from 'axios';
+import { carregarLivros } from '../../store/slices/livrosAlugarSlice';
 
 
- /* const livros = [{
-                  titulo: "Gente Única",
-                  descricao: "Este livro tem como objetivo descrever...",
-                  dataAluguel: "45/12/2021",
-                  proprietario: "Marquinhos DJ",
-                  img: livro1
-                }, {
-                  titulo: "WILL",
-                  descricao: "Este livro tem como objetivo descrever...",
-                  dataAluguel: "30/02/2021",
-                  proprietario: "Junin do Suco",
-                  img: livro2
-                },{
-                  titulo: "Código Limpo",
-                  descricao: "Este livro tem como objetivo descrever...",
-                  dataAluguel: "22/10/2021",
-                  proprietario: "Miguel da Massa",
-                  img: livro3
-                },{
-                  titulo: "O Poder do Hábito",
-                  descricao: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, nventore! Iusto, at.",
-                  dataAluguel: "12/12/2021",
-                  proprietario: "João das Neves",
-                  img: livro4
-              }] */
+var cont = 0
+    async function pegaDados () {
+        if (cont == 0) {
+        try {
+           const response = axios.get('http://localhost:3000/livros/alugados')
+           cont += 1;
+           return (await response).data.livros
+        }
+        catch (error) {
+            console.error(error);
+        }
+        
+        }
+    }
 
-  export default function Cards (){
+export default function Cards (){
+        const dispatch = useDispatch()
+        
+        pegaDados().then(response => {
+          dispatch(carregarLivros(response))
+        })
+  
+
         const livros = useSelector(state => state.alugados)
           console.log(livros)
         return( 
