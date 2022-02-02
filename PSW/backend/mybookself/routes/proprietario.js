@@ -15,15 +15,17 @@ router.get('/', async (req, res, next) => {
 router.post('/cadastro', (req, res, next) => {
   const { name, nickname, cpf, cel, email, password, conformicaoPassword, agreement } = req.body
 
-  const novoUsuario = new usuario({
-    name, nickname, cpf, cel, email, password, agreement
-  })
-
-  novoUsuario.save()
-  res.status(200).send("Usuario cadastrado")
+  if(password == conformicaoPassword) {
+    const novoUsuario = new usuario({
+      name, nickname, cpf, cel, email, password, agreement
+    })
+  
+    novoUsuario.save()
+    res.status(201).send("Usuario cadastrado")
+  } else {
+    res.status(400).send("A 'senha' e a 'confirmação da Senha' não são iguais")
+  }
 }
 )
-
-
 
 module.exports = router;
