@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const LivroSchema = mongoose.Schema({
     titulo: String,
     proprietario: String,
-    dataPublicacao: Date,
+    dataPublicacao: String,
     descricao: String,
     edicao: String,
     editora: String,

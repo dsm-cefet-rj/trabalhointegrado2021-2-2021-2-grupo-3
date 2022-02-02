@@ -5,16 +5,35 @@ import Container_chat from "../../components/Container_chat";
 import rino from "../../img/rino.jpg";
 import sapin from "../../img/sapin.jpg";
 import { Header } from "../../components/Header";
+import { carregarMensagem } from "../../store/slices/chatSlice.js"
+import axios from  "axios"
 
+var cont = 0
+    async function pegaDados () {
+        if (cont == 0) {
+        try {
+           const response = axios.get('http://localhost:3000/Chat')
+           cont += 1;
+           return (await response).data.mensagem
+        }
+        catch (error) {
+            console.error(error);
+        }
+        
+        }
+    }
 
 
 export default function Chat(){
     const [chat_state, set_chat_state] = useState([])
     const [chat_conversa, set_chat_conversa] = useState([])
+    const dispararMensagem = useDispatch()
+    pegaDados().then(response => {
+        dispararMensagem(carregarMensagem(response))
+    })
     const recebeMsg = useSelector((state) => {
         return state.msg 
     })
-    const dispararMensagem = useDispatch()
     function handleSubmit(e) {
         e.preventDefault()
         const chat_data = new FormData(e.target)
@@ -23,6 +42,8 @@ export default function Chat(){
         const envia_mensagem = {
             img: rino,
         }
+        axios.post('http://localhost:3000/Chat/enviarMsg', {destinatarioID: "teste1", remetenteID: "teste2",
+         msg: ref_chat_data.msg, hora: Date.now(), img: rino})
         dispararMensagem(enviarMensagem(Object.assign( ref_chat_data, envia_mensagem)))
         console.log(recebeMsg)
         console.log(envia_mensagem)

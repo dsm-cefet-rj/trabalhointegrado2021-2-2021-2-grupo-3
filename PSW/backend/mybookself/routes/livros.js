@@ -23,9 +23,16 @@ router.post('/cadastro', uploadImg,(req, res, next) => {
   const { titulo, proprietario, dataPublicacao, 
           descricao, edicao, editora, escritor, 
           valorAluguel } = req.body
-  
+
+  let dataFormatada = new Date(dataPublicacao).toLocaleDateString("pt-br", {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })
+
   const novoLivro = new livro({
-      titulo, proprietario, dataPublicacao,
+      titulo, proprietario,
+      dataPublicacao: dataFormatada,
       descricao, edicao, editora, escritor,
       img: "http://localhost:3000/images/" + req.file.filename, 
       valorAluguel, alugado: false

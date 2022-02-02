@@ -10,13 +10,18 @@ function enviarMensagemReducer (state, msg_incompleta) {
     return state.concat(msg)
 }
 
+function carregarMensagemReducer (state, msg_incompleta){
+    return state = msg_incompleta
+}
+
 export const chatSlice = createSlice({
     name: "chat",
     initialState: [],
     reducers: {
+        carregarMensagem: (state, action) => carregarMensagemReducer(state, action.payload),
         enviarMensagem: (state, action) => enviarMensagemReducer(state, action.payload)
     }
 })
 
-export const { enviarMensagem } = chatSlice.actions
+export const { enviarMensagem, carregarMensagem } = chatSlice.actions
 export default chatSlice.reducer

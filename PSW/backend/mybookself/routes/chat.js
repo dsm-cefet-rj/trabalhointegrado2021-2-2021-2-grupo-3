@@ -1,17 +1,22 @@
-const mensagem = [{
-    idUsuario: 10,
-    msg: "ola",
-    container: "container",
-    hora: new Date().getHours() + ":" + new Date().getMinutes(),
-}]
-
-var chatmsg = require('../bdLocal/chat.json')
+var chatModel = require('../models/chatModel.js')
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send(chatmsg);
+/* GET todas as mensagens no bd. */
+router.get('/', async function(req, res, next) {
+  var dados = { mensagem : [] }
+  const chatMsg = await chatModel.find()
+  chatMsg.map(mensagem => dados.mensagem.push(mensagem))
+  res.send(dados);
+});
+
+router.post('/enviarMsg', function(req, res, next){
+  const {destinatarioID, remetenteID, msg, hora, img} = req.body
+  console.log(msg)
+  const horaFormatada = new Date(hora).toLocaleTimeString("pt-br", { hour12: false })
+  const novaMensagem = new chatModel({destinatarioID, remetenteID, msg, hora: horaFormatada, img})
+  novaMensagem.save()
+  res.send("teste")
 });
 
 module.exports = router;
