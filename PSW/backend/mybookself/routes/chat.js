@@ -1,17 +1,9 @@
-const mensagem = [{
-    idUsuario: 10,
-    msg: "ola",
-    container: "container",
-    hora: new Date().getHours() + ":" + new Date().getMinutes(),
-}]
-
-var chatmsg = require('../bdLocal/chat.json')
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
+/* GET todas as mensagens no bd. */
 router.get('/', function(req, res, next) {
-  res.send(chatmsg);
+  res.send('mensagens');
 });
 
 module.exports = router;
