@@ -9,7 +9,8 @@ const LivroSchema = mongoose.Schema({
     editora: String,
     escritor: String,
     img: String,
-    valorAluguel: Number
+    valorAluguel: Number,
+    alugado: Boolean,
 })
 
 const livro = mongoose.model('livro', LivroSchema)

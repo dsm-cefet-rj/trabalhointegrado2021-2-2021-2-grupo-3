@@ -1,9 +1,5 @@
 import React from "react";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { livroAlugar } from "../store/slices/livrosAlugarSlice"; 
 import { removerLivro } from "../store/slices/cadastroLivroSlice";
 import { useDispatch } from 'react-redux';

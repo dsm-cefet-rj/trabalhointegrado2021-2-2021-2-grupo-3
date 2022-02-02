@@ -5,14 +5,17 @@ const livro = require('../models/livrosModel')
 const fs = require('fs');
 const uploadImg = require('../middleware/multer');
 
-/* GET informações dos livros. */
-router.get('/', async (req, res, next) => {
-  const livrosinfo =  await livro.find();
-  var dados = {
-    livros : []
-  }
+async function pegarLivros(status) {
+  var dados = { livros : [] }
+  const livrosinfo =  await livro.find({alugado: status});
 
   livrosinfo.map(livro => dados.livros.push(livro))
+  return dados
+}
+
+/* informações dos livros gerais. */
+router.get('/', async (req, res, next) => {
+  const dados = await pegarLivros(false)
   res.status(200).send(dados) 
 });
 
@@ -25,16 +28,29 @@ router.post('/cadastro', uploadImg,(req, res, next) => {
       titulo, proprietario, dataPublicacao,
       descricao, edicao, editora, escritor,
       img: "http://localhost:3000/images/" + req.file.filename, 
-      valorAluguel
+      valorAluguel, alugado: false
   })
 
   novoLivro.save()
   res.status(201).send("Livro cadastrado")
 })
 
-router.post('/Alugado', (req, res, next) => {
+/* infomações do livros Alugados */
+router.get('/alugados', async (req, res, next) => {
+  const dados = await pegarLivros(true)
+  res.status(200).send(dados) 
+})
 
-  res.send("livro Alugado")
+router.post('/alugar', (req, res, next) => {
+  const {livroID} = req.body
+  livro.findByIdAndUpdate(livroID, { alugado: true}, function (err, docs) {
+    if (err){
+        console.log(err)
+        res.status(400).send('não foi possivel alugar o livro!')
+    } else 
+      res.status(200).send("livro Alugado")
+  })
+  
 })
 
 module.exports = router;

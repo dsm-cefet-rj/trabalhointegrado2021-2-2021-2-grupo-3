@@ -1,6 +1,11 @@
 import {createSlice} from '@reduxjs/toolkit'
+import axios from 'axios';
 
 function livroAlugarReducer (state, livro) {
+    axios.post("http://localhost:3000/livros/alugar", { livroID: livro._id})
+    .then( (response) => { console.log(response) })
+    .catch( (error) => { console.log(error) })
+    
     return state.concat(livro)
 }
 
