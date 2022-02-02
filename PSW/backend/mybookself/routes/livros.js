@@ -53,4 +53,16 @@ router.post('/alugar', (req, res, next) => {
   
 })
 
+router.delete('/devolver', (req, res, next) => {
+  const {livroID} = req.body
+  livro.deleteOne(livroID, function (err, docs) {
+    if (err){
+        console.log(err)
+        res.status(400).send('não foi possivel devolver o livro!')
+    } else 
+      res.status(200).send("livro Devolvido")
+  })
+  
+})
+
 module.exports = router;
