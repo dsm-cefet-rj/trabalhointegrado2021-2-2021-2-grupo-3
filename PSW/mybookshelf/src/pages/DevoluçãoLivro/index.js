@@ -35,10 +35,15 @@ export default function DevoluçãoLivro() {
             console.log(error)
         })
         const mensagem = {
-            msg: "Olá " + livroAlugado.proprietario + ", poderíamos marcar a devolução do "+livroAlugado.titulo+" para o dia: " + data.dataDevolução + "?",
-            img:rino}
+            destinatarioID: "teste1",
+            remetenteID: "teste2",
+            hora: Date.now(),
+            msg: "Olá " + livroAlugado.proprietario + ", poderíamos marcar a devolução do "
+                +livroAlugado.titulo+" para o dia: " + data.dataDevolução + "?",
+            img:rino 
+        }
         dispatch(enviarMensagem(mensagem))
-        console.log(mensagem)
+        axios.post('http://localhost:3000/Chat/enviarMsg', mensagem)
         navigate('/Chat') ;
     }
     const dispatch= useDispatch()

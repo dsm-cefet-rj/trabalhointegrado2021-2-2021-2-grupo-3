@@ -2,9 +2,7 @@ import React from 'react'
 import ConfirmarAluguel from "../../components/ConfirmarAluguel";
 import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
-import { Link, useHistory , useParams} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-
 
 import { useSelector } from "react-redux"
 
