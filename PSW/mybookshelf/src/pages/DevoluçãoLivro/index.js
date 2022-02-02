@@ -6,6 +6,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { enviarMensagem } from "../../store/slices/chatSlice";
 import rino from "../../img/rino.jpg";
+import axios from 'axios';
 
 
 export default function DevoluçãoLivro() {
@@ -26,6 +27,13 @@ export default function DevoluçãoLivro() {
         const data = Object.fromEntries(formData)
         const devolucaoData = Object.assign(livroAlugado.titulo, data)
         console.log(devolucaoData)
+        axios.delete('http://localhost:3000/livros/devolver', {livroID: livroAlugado._id})
+        .then(function(response){
+            console.log(response)
+
+        }).catch(function(error) {
+            console.log(error)
+        })
         const mensagem = {
             msg: "Olá " + livroAlugado.proprietario + ", poderíamos marcar a devolução do "+livroAlugado.titulo+" para o dia: " + data.dataDevolução + "?",
             img:rino}
