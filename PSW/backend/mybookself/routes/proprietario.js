@@ -13,9 +13,12 @@ router.get('/', async (req, res, next) => {
 });
 
 router.post('/cadastro', (req, res, next) => {
-  const { name, nickname, cpf, cel, email, password, conformicaoPassword, agreement } = req.body
+  const { name, nickname, cpf, cel, email, password, confirmacaoPassword, agreement } = req.body
 
-  if(password == conformicaoPassword) {
+  console.log("password: " + password)
+  console.log("confimacaoPassword: " + confirmacaoPassword)
+  
+  if(password == confirmacaoPassword) {
     const novoUsuario = new usuario({
       name, nickname, cpf, cel, email, password, agreement
     })
