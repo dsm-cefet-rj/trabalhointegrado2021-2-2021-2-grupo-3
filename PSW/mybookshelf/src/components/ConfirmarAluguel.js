@@ -26,8 +26,10 @@ export default ({livro}) => {
             </div>
                   
             <div class="rent-information">
-              <p class="rent-date"><strong>Alugado em:</strong> {livro.dataAluguel}</p>
-              <p><strong>Proprietário:</strong> {livro.proprietario}</p>
+              <p><strong>Editora:</strong> {livro.editora}</p>
+              <p><strong>Autor(a):</strong> {livro.escritor}</p>
+              <p><strong>Edição:</strong> {livro.edicao}</p>
+              <p><strong>Valor do Aluguel:</strong> R$ {livro.valorAluguel}</p>
             </div>
             <table>
                 <tr>
