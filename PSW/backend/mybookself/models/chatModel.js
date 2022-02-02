@@ -4,7 +4,8 @@ const chatSchema = mongoose.Schema({
     destinatarioID: String,
     remetenteID: String,
     msg: String,
-    hora: Date 
+    hora: String,
+    img: String
 })
 
 const chatModel = mongoose.model('mensagens', chatSchema)
