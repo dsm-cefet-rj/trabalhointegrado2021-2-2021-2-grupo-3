@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import './FormCadastroUsuario.css';
+import {useDispatch} from 'react-redux';
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Link
   } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { cadastrarUsuario } from "../../store/slices/cadastroUsuarioSlice";
+import axios from 'axios';
 
 export default () => {
-
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [formValues, setFormValues] = useState({});
 
     const handleInputChange = (e) => {
@@ -20,8 +25,20 @@ export default () => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData);
+        const temp = Object.assign(data)
+
 
         console.log('*** handleSubmit', data);
+
+        dispatch(cadastrarUsuario(temp))
+        axios.post('http://localhost:3000/usuario/cadastro', temp)
+        .then(function(response){
+            console.log(response)
+
+        }).catch(function(error) {
+            console.log(error)
+        })
+        navigate('/')
     };
 
     console.log('**** formValues', formValues);

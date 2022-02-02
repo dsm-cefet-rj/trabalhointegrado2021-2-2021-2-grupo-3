@@ -10,6 +10,7 @@ const mongoose = require('mongoose')
 var indexRouter = require('./routes/index');
 var livrosRouter = require('./routes/livros');
 var chatRouter = require('./routes/chat')
+var proprietarioRouter = require('./routes/proprietario')
 
 const url = "mongodb://localhost:27017/test"
 const connect = mongoose.connect(url) 
@@ -29,5 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/livros', livrosRouter);
 app.use('/chat', chatRouter);
+app.use('/usuario', proprietarioRouter);
+
 
 module.exports = app;
