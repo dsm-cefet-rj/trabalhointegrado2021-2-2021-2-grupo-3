@@ -7,12 +7,13 @@ var session = require('express-session');
 var FileStore = require('session-file-store')(session);
 var cors = require('cors');
 
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var livrosRouter = require('./routes/livros');
-var chatRouter = require('./routes/chat')
-var proprietarioRouter = require('./routes/proprietario')
+var chatRouter = require('./routes/chat');
+var proprietarioRouter = require('./routes/proprietario');
+var usersRouter = require('./routes/users');
 
 const url = "mongodb://localhost:27017/test"
 const connect = mongoose.connect(url) 
@@ -36,39 +37,23 @@ app.use(session({
     store: new FileStore()
 }));
 
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
 function auth (req, res, next) {
     console.log(req.session);
 
-    if (!req.session.user) {
-        var authHeader = req.headers.authorization;
-        if(!authHeader) {
-            var err = new Error('Você não está autorizado!');
-            res.setHeader('WWW-Authenticate', 'Basic');
-            err.status = 401;
-            next(err);
-            return;
-        }
-
-        var auth = new Buffer.from(authHeader.split(' ')[1], 'base64').toString().split(':');
-        var user = auth[0];
-        var pass = auth[1];
-        if (user == 'admin' && pass == 'password') {
-            req.session.user = 'admin';
-            next();
-        } else {
-            var err = new Error('Você não está autorizado!');
-            res.setHeader('WWW-Authenticate', 'Basic');
-            err.status = 401;
-            next(err);
-        }
+    if(!req.session.user) {
+        var err = new Error('Você não está autenticado!')
+        err.status = 403;
+        return next(err);
     } else {
-        if (req.session.user === 'admin') {
-            console.log('req.session: ',req.session);
+        if(req.session.user === 'authenticated') {
             next();
         } else {
-            var err = new Error('Você não está autorizado!');
-            err.status = 401;
-            next(err);
+            var err = new Error('Você não está autenticado!')
+            err.status = 403;
+            return next(err);
         }
     }
 }
@@ -76,7 +61,6 @@ function auth (req, res, next) {
 app.use(auth);
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
 app.use('/livros', livrosRouter);
 app.use('/chat', chatRouter);
 app.use('/usuario', proprietarioRouter);
