@@ -96,6 +96,9 @@ export class Header extends React.Component{
 
                 <Modal open={this.state.login} onClose={this.onCloseModalclose} >
                         <div id= "login-container">
+                            <div className="LoginClose"> 
+                            <Link to="/LivrosAlugados"> X </Link>
+                            </div>
                             <h1 id="fonte-branca"> Login</h1>
                             <form onSubmit={this.handleSubmit}>
                                 <label for="email">Email</label>

@@ -78,6 +78,10 @@ background-color: #ece8ea;
     color: #ffffff;
 }
 
+.LoginClose{
+    transform: translateX(150px);
+}
+
 .btn-vermais{
     transform: translateX(1650px);
 }
