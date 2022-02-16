@@ -1,29 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const usuario = require('../models/usuarioModel') 
-const bodyParser = require('body-parser');
-router.use(bodyParser.json());
+const jwt = require('jsonwebtoken')
 
 router.post('/', (req, res, next) => {
-    if(!req.session.user) {
-        var authHeader = req.headers.authorization;
-
-        /* if(!authHeader) {
-            var err = new Error(' Você não está autorizado!');
-            res.setHeader('WWW-Authenticate', 'Basic');
-            err.status = 401;
-            return next(err);
-        }
-
-        var auth = new Buffer.from(authHeader.split(' ')[1], 'base64').toString().split(':');
-        var username = auth[0];
-        var password = auth[1]; */
-
         const {email, password} = req.body
 
-        usuario.findOne({email})
-        .then((user) => {
-            console.log(user)
+        usuario.findOne({email}).then( async (user) => {
             if(user === null) {
                 var err = new Error('Email invalido!!');
                 err.status = 403;
@@ -35,21 +18,21 @@ router.post('/', (req, res, next) => {
                 return next(err);
             }
             else if (user.email === email && user.password === password) {
-                req.session.user = 'authenticated';
-                res.statusCode = 200;
-                res.setHeader('Content-Type', 'text/plain');
-                res.end('Você está autenticado!')
+                jwt.sign({ usuarioID: user._id }
+                , 'SenhaSecreta', { expiresIn: '1h' }
+                , (err, token) => {
+                    console.log("Token: " + token);
+                    res.status(200).json({
+                        nickname: user.nickname,
+                        token: token
+                    }).end()
+                  });
             }
         })
-        .catch((err) => next(err));
-    } else {
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'text/plain');
-        res.end('Você já está autenticado!');
-    }
+        .catch((err) => next(err)) 
     })
 
-router.get('/logout', (req, res) => {
+/* outer.get('/logout', (req, res) => {
     if (req.session) {
         req.session.destroy();
         res.clearCookie('session-id');
@@ -59,7 +42,7 @@ router.get('/logout', (req, res) => {
         err.status = 403;
         next(err);
     }
-});
+}); */
 
 
 module.exports = router
