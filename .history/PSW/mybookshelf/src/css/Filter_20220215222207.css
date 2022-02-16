@@ -6,7 +6,8 @@
     background-image: url("../img/search.svg");
     background-position: left; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
-    position: auto;
+    position: absolute;
+
 }
 
 .input-filter::placeholder{

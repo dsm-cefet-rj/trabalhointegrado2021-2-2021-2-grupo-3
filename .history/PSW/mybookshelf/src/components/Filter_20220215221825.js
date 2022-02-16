@@ -1,9 +1,8 @@
 import '../css/Filter.css'
 import Input from '../components/Input'
-import { useState } from 'react'
 
 function handleFindBook(event){
-    console.log(event.target.value);
+    console.log()
 }
 export function Filter(){
     const [findBook, setFindBook] = useState("");
