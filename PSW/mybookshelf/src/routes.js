@@ -7,6 +7,7 @@ import LivrosAlugados from './pages/LivrosAlugados';
 import Chat from './pages/Chat';
 import CadastroLivro from './pages/CadastroLivro';
 import ConfirmarAluguel from './pages/ConfirmacaoAluguel';
+import LoginPage from './pages/Main';
 
 
 export default function MainRoutes () {
@@ -20,6 +21,8 @@ export default function MainRoutes () {
             <Route path="/LivrosAlugados" element={<LivrosAlugados/>}/>
             <Route path="/AlugarLivro" element={<CadastroLivro/>}/>
             <Route path="/ConfirmarAluguel" element={<ConfirmarAluguel/>}/>
+            <Route path="/Login" element={<LoginPage/>}/>
+            
         </Routes>
     );
 };

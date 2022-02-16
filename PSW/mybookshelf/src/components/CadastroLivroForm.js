@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Input from './Input';
-import {useDispatch} from 'react-redux';
+import {useDispatch,useSelector} from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { cadastrarLivro } from "../store/slices/cadastroLivroSlice";
 import axios from 'axios';
@@ -11,6 +11,7 @@ const inforEx = {
   }
 
 export default function () {
+    const token = useSelector(state => state.login.token)
     const dispatch = useDispatch()
     const [formValues, setFormValues] = useState({})
     const [img, setImg] = useState('')
@@ -28,6 +29,7 @@ export default function () {
         axios.post('http://localhost:3000/livros/cadastro', formData, {
             headers: {
               'Content-Type': 'multipart/form-data',
+              'Authorization': 'Bearer '+ token,
             }
         })
         .then(function(response){
