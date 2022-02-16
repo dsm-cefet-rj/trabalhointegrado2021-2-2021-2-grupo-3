@@ -9,7 +9,7 @@ function handleFindBook(event){
 export function Filter(){
     const [findBook, setFindBook] = useState("");
     return(
-        <input type="text" className="input-filter"
+        <input type="submit" className="input-filter"
         onChange={handleFindBook}       
         placeholder="Find your book"/>
     )

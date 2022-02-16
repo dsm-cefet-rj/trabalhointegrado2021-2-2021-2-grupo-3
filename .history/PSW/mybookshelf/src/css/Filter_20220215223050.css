@@ -9,11 +9,10 @@
     display: block;
     position: absolute;
     left: 0px;
-    top: 0px;
     right: 0px;
     bottom: 0px;
     margin: auto;
-    height: 30px;
+    height: 450px;
     z-index: 10000;
 }
 

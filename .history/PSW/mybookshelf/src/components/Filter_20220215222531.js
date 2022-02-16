@@ -10,7 +10,7 @@ export function Filter(){
     const [findBook, setFindBook] = useState("");
     return(
         <input type="text" className="input-filter"
-        onChange={handleFindBook}       
+        onChange={handleInputChange}       
         placeholder="Find your book"/>
     )
 }

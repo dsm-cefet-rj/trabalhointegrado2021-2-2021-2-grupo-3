@@ -7,14 +7,6 @@
     background-position: left; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     display: block;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    margin: auto;
-    height: 30px;
-    z-index: 10000;
 }
 
 .input-filter::placeholder{
