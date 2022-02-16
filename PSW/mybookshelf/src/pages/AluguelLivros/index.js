@@ -2,18 +2,20 @@ import React from 'react'
 import  Cards  from '../../components/Cards'
 import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
-import { useEffect } from 'react'
 import axios from 'axios'
-import { Link, useHistory , useParams} from 'react-router-dom';
 import { carregarCatalogo } from '../../store/slices/cadastroLivroSlice'
 
 import { useSelector, useDispatch } from "react-redux"
 
 var cont = 0
-    async function pegaDados () {
+    async function pegaDados (token) {
         if (cont == 0) {
         try {
-           const response = axios.get('http://localhost:3000/livros')
+           const response = axios.get('http://localhost:3000/livros',{
+            headers: {
+              'Authorization': 'Bearer '+ token,
+            }
+        })
            cont += 1;
            return (await response).data.livros
         }
@@ -26,6 +28,8 @@ var cont = 0
 
 export default function AluguelLivros (){
     const dispatch = useDispatch()
+    const token = useSelector(state => state.login.token)
+    console.log(token)
     pegaDados().then(response => {
         dispatch(carregarCatalogo(response))
     })

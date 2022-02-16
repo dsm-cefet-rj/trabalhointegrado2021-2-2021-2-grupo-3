@@ -1,21 +1,22 @@
-import React,{Component} from 'react';
+import React,{useState} from 'react';
 import Modal from 'react-responsive-modal';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import axios from 'axios';
+import { salvarToken } from '../store/slices/loginSlice';
+import { useNavigate } from "react-router-dom";
 import "../css/styles_principal.css"
 import '../css/Login.css'
+
 
 export class Header extends React.Component{
     
     constructor(props) {
         super(props)
-
+        
         this.state = {
             login: false,
+            email: null , 
+            password: null
         }
     }
 
@@ -27,8 +28,32 @@ export class Header extends React.Component{
         this.setState({ login: false });
     };
 
+    handleSubmit = (e) => {
+        e.preventDefault()
+        const loginData = {
+            email: e.target[0].value,
+            password: e.target[1].value
+        }
+
+        axios.post('http://localhost:3000/login', loginData)
+        .then(function(response){
+            console.log(response)
+            salvarToken(response.data)
+            const navigate = useNavigate()
+            navigate('/')
+        }).catch(function(error) {
+            console.log(error)
+        })
+
+    } 
+
+    handleInputChange = (e) => {
+        const {name, value} = e.target
+        this.setState({[name]: value})
+    }
+
     render() {
-        const {login} = this.state;
+        var {email, password} = this.state;
         return( 
             <>         
                 <nav className="navbar navbar-expand-lg fixed-top bg-primary-color" id="navbar">
@@ -69,17 +94,22 @@ export class Header extends React.Component{
                 </div>
                 </nav>
 
-                <Modal open={login} onClose={this.onCloseModalclose}>
-                    <body>
+                <Modal open={this.state.login} onClose={this.onCloseModalclose} >
                         <div id= "login-container">
                             <h1 id="fonte-branca"> Login</h1>
-                            <form action="">
+                            <form onSubmit={this.handleSubmit}>
                                 <label for="email">Email</label>
-                                <input type="email" name= "email" id="email" placeholder="Digite seu email:" autocomplete="off"/>
+                                <input type="email" name= "email" id="email" 
+                                placeholder="Digite seu email:" autoComplete='off'
+                                onChange={this.handleInputChange}
+                                value={email || ""}
+                                />
                                 <label for="password">Senha</label>
-                                <input type="password" name="password" id="password" placeholder="Digite sua senha"/>
-                                <a href="#" id="forgot- pass">Esqueceu a senha?</a>
-                                <input type="submit" value="Login"/>
+                                <input type="password" name="password" id="password" placeholder="Digite sua senha" 
+                                onChange={this.handleInputChange}
+                                value={password || ""}/>
+                                {/* <a href="#" id="forgot- pass">Esqueceu a senha?</a> */}
+                                <input type="submit" value="Login" id='Login'/>
                             </form>
                             
                             <div id= "register-container">
@@ -87,7 +117,6 @@ export class Header extends React.Component{
                                 <Link to="/CadastroUsuario"> Cadastrar Usuario</Link>
                             </div>
                         </div>
-                    </body>
               </Modal>
               </>
         );
