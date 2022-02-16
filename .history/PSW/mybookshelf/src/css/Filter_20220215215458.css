@@ -1,0 +1,14 @@
+.input-filter{ 
+    width: 200px;
+    margin-left: 40.5rem;
+    margin-top: 5rem;
+    background: transparent;
+    background-image: url("../img/search.svg");
+    background-position: left; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+
+}
+
+.input-filter::placeholder{
+    padding-left: 1rem;
+}

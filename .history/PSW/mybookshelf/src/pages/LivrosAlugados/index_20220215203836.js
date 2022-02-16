@@ -5,7 +5,6 @@ import LivrosAlugados from '../../components/LivrosAlugados';
 import {useSelector, useDispatch} from 'react-redux';
 import axios from 'axios';
 import { carregarLivros } from '../../store/slices/livrosAlugarSlice';
-import { Filter } from '../../components/Filter'
 
 
 var cont = 0
@@ -51,8 +50,7 @@ export default function Cards (){
         <div className = "App">
             <div>
               <Header/>
-              <LivrosAlugados livros={livros}/>
-              <Filter/>
+              <LivrosAlugados livros={livros}/> 
               <Footer/>
             </div>
         </div>

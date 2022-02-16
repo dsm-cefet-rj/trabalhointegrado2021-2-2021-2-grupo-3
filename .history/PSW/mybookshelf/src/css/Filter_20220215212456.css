@@ -1,0 +1,15 @@
+.input-filter{ 
+    width: 132px;
+    margin-left: 40.5rem;
+    margin-top: 5rem;
+    background: transparent;
+    background-image: url("../img/search.svg");
+
+}
+
+placeholder{
+    text-align: center;
+    background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
