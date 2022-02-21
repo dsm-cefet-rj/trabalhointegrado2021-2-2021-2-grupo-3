@@ -24,11 +24,11 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/login', loginRouter)
 app.use('/usuario', proprietarioRouter);
 
 app.use(auth);
-app.use(express.static(path.join(__dirname, 'public')));
 app.use('/livros', livrosRouter);
 app.use('/chat', chatRouter);
 
