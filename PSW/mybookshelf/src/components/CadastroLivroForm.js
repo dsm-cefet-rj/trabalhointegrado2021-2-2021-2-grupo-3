@@ -17,9 +17,7 @@ export default function () {
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData)
         const temp = Object.assign(data)
-        alert("Livro cadastrado para alugar")
-
-        console.log(data)
+       
         
         axios.post('http://localhost:3000/livros/cadastro', formData, {
             headers: {
@@ -28,13 +26,14 @@ export default function () {
             }
         })
         .then(function(response){
-            console.log(response.data)
             temp.img = response.data.urlImg
             dispatch(cadastrarLivro(temp))
+            alert("Livro cadastrado para alugar")
+            navigate('/')
         }).catch(function(error) {
             console.log(error)
+            alert("Falha ao cadastrar livro")
         })
-        navigate('/')
     }
 
     const handleInputChange = (e) => {
