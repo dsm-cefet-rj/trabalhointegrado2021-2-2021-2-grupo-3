@@ -5,11 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { cadastrarLivro } from "../store/slices/cadastroLivroSlice";
 import axios from 'axios';
 
-const inforEx = {
-    id: Math.floor(Math.random() * 101),
-    proprietario: "Lucas"
-  }
-
 export default function () {
     const token = useSelector(state => state.login.token)
     const dispatch = useDispatch()
@@ -21,11 +16,11 @@ export default function () {
         e.preventDefault()
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData)
-        const temp = Object.assign(data,inforEx)
+        const temp = Object.assign(data)
         alert("Livro cadastrado para alugar")
 
         console.log(data)
-        dispatch(cadastrarLivro(temp))
+        
         axios.post('http://localhost:3000/livros/cadastro', formData, {
             headers: {
               'Content-Type': 'multipart/form-data',
@@ -33,8 +28,9 @@ export default function () {
             }
         })
         .then(function(response){
-            console.log(response)
-
+            console.log(response.data)
+            temp.img = response.data.urlImg
+            dispatch(cadastrarLivro(temp))
         }).catch(function(error) {
             console.log(error)
         })

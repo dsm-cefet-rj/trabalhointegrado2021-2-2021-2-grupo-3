@@ -30,16 +30,19 @@ router.post('/cadastro', uploadImg,(req, res, next) => {
     day: 'numeric'
   })
 
+  const urlImg = "http://localhost:3000/images/" + req.file.filename
+
   const novoLivro = new livro({
       titulo, proprietario,
       dataPublicacao: dataFormatada,
       descricao, edicao, editora, escritor,
-      img: "http://localhost:3000/images/" + req.file.filename, 
+      img: urlImg, 
+      proprietario: req.userId,
       valorAluguel, alugado: false
   })
 
   novoLivro.save()
-  res.status(201).send("Livro cadastrado")
+  res.status(201).json({mensage: "Livro cadastrado", urlImg}).end()
 })
 
 /* infomações do livros Alugados */
