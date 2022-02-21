@@ -27,6 +27,7 @@ export default function () {
         })
         .then(function(response){
             temp.img = response.data.urlImg
+            temp.livroId = response.data.livroId
             dispatch(cadastrarLivro(temp))
             alert("Livro cadastrado para alugar")
             navigate('/')
