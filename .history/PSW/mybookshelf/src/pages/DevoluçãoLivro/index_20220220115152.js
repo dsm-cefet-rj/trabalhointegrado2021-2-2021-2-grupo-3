@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { enviarMensagem } from "../../store/slices/chatSlice";
 import rino from "../../img/rino.jpg";
 import axios from 'axios';
-import { ComprarLivro }  from '../../components/ComprarLivro'
 
 
 export default function DevoluçãoLivro() {
