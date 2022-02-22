@@ -29,7 +29,8 @@ var cont = 0
 export default function AluguelLivros (){
     const dispatch = useDispatch()
     const token = useSelector(state => state.login.token)
-    pegaDados().then(response => {
+    const logado = useSelector(state => state.login.logado)
+    pegaDados(token).then(response => {
         dispatch(carregarCatalogo(response))
     })
 
@@ -55,7 +56,6 @@ export default function AluguelLivros (){
             <div>
                 <Header/>
                 <Cards livros={livros}/>
-                {/* <h1>Token: {token}</h1> */}
                 <Footer/>
             </div>
         </div>

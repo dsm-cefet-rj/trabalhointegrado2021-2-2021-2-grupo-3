@@ -49,18 +49,15 @@ router.post('/cadastro', uploadImg, (req, res, next) => {
 /* infomações do livros Alugados */
 router.get('/alugados', async (req, res, next) => {
   const dados = await pegarLivros(true)
-  /* const livrosAlugados = { livros: []}
-  
-  dados.livros.map( async livro => {
-    if(livro.proprietarioId != req.userId) {
-       const aluguelinfo = await aluguel.find({
-          livroId: livro.livroId,
-          locatarioId: req.userId
-       })
-
-       }
-    }
-  }) */
+  /*var livrosAlugados = { livros: [] }
+    dados.livros.map( async livro => {
+      const aluguelinfo = await aluguel.find({
+        livroId: livro._id,
+        locatarioId: req.userId
+        })
+        console.log (aluguelinfo[0])
+     })*/
+    
 
   res.status(200).send(dados)
 })
