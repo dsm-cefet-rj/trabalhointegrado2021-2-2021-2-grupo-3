@@ -4,6 +4,7 @@ var logger = require('morgan');
 var cors = require('cors');
 const mongoose = require('mongoose')
 
+var comprarRouter = require('./routes/compraDoLivro')
 var loginRouter = require('./routes/login')
 var livrosRouter = require('./routes/livros');
 var chatRouter = require('./routes/chat');
@@ -31,6 +32,7 @@ app.use(auth);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/livros', livrosRouter);
 app.use('/chat', chatRouter);
+app.use('/compradolivro', comprarRouter);
 
 
 module.exports = app;

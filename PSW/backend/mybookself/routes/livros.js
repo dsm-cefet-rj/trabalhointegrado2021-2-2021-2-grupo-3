@@ -35,7 +35,7 @@ router.post('/cadastro', uploadImg,(req, res, next) => {
       dataPublicacao: dataFormatada,
       descricao, edicao, editora, escritor,
       img: "http://localhost:3000/images/" + req.file.filename, 
-      valorAluguel, alugado: false
+      valorAluguel, alugado: false, comprado: false
   })
 
   novoLivro.save()
