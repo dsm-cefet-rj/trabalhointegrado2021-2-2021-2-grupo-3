@@ -30,7 +30,7 @@ export default function () {
             temp.livroId = response.data.livroId
             dispatch(cadastrarLivro(temp))
             alert("Livro cadastrado para alugar")
-            navigate('/')
+            navigate('/Main')
         }).catch(function(error) {
             console.log(error)
             alert("Falha ao cadastrar livro")

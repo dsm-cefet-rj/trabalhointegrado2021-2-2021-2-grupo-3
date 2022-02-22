@@ -27,7 +27,7 @@ export default function () {
                     }
                 }).then(response => {
                     dispatch(carregarCatalogo(response.data.livros))
-                    navigate('/')
+                    navigate('/Main')
                 }).catch(err => {
                     console.log(err)
                 })
@@ -49,6 +49,7 @@ export default function () {
             <form onSubmit={handleSubmit}>
                 <Input
                     className="full-box"
+                    type="email"
                     label="Email"
                     placeholder="Digite seu email..."
                     id="email"
@@ -57,6 +58,7 @@ export default function () {
                 />
                 <Input
                     className="full-box"
+                    type="password"
                     label="Senha"
                     placeholder="Digite sua senha..."
                     id="password"
@@ -72,6 +74,8 @@ export default function () {
                 <div class="full-box">
                     <input type="submit" value="Logar" id="btn-submit" />
                 </div>
+
+                
             </form>
         </div>
     )

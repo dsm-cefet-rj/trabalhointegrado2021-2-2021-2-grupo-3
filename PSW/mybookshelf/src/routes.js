@@ -14,14 +14,14 @@ export default function MainRoutes () {
 
     return (
         <Routes>
-            <Route path="/" element={<AluguelLivros/>} />
+            <Route path="/Main" element={<AluguelLivros/>} />
             <Route path="/CadastroUsuario" element={<CadastroUsuario/>}/>
             <Route path="/DevolverLivro" element={<DevoluçãoLivro/>}/>
             <Route path="/Chat" element={<Chat/>}/>
             <Route path="/LivrosAlugados" element={<LivrosAlugados/>}/>
             <Route path="/AlugarLivro" element={<CadastroLivro/>}/>
             <Route path="/ConfirmarAluguel" element={<ConfirmarAluguel/>}/>
-            <Route path="/Login" element={<LoginPage/>}/>
+            <Route path="/" element={<LoginPage/>}/>
             
         </Routes>
     );

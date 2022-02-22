@@ -29,7 +29,6 @@ var cont = 0
 export default function AluguelLivros (){
     const dispatch = useDispatch()
     const token = useSelector(state => state.login.token)
-    const logado = useSelector(state => state.login.logado)
     pegaDados(token).then(response => {
         dispatch(carregarCatalogo(response))
     })

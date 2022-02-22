@@ -1,1 +1,24 @@
-{"usuario":[{"name":"João Victor Machado Rangel","nickname":"JV","cpf":"17821206709","cel":"21996707303","email":"jvmrangel@gmail.com","password":"teste","confirmacaoPassword":"teste","agreement":"on"},{"name":"jorge","nickname":"jorgin","cpf":"123456789","cel":"21999999999","email":"jorge@gmail.com","password":"123","confirmacaoPassword":"123","agreement":"on"}]}
+{
+  "usuario": [
+    {
+      "name": "João Victor Machado Rangel",
+      "nickname": "JV",
+      "cpf": "17821206709",
+      "cel": "21996707303",
+      "email": "jvmrangel@gmail.com",
+      "password": "teste",
+      "confirmacaoPassword": "teste",
+      "agreement": "on"
+    },
+    {
+      "name": "jorge",
+      "nickname": "jorgin",
+      "cpf": "123456789",
+      "cel": "21999999999",
+      "email": "jorge@gmail.com",
+      "password": "123",
+      "confirmacaoPassword": "123",
+      "agreement": "on"
+    }
+  ]
+}
