@@ -8,10 +8,14 @@ import { carregarLivros } from '../../store/slices/livrosAlugarSlice';
 
 
 var cont = 0
-    async function pegaDados () {
+    async function pegaDados (token) {
         if (cont == 0) {
         try {
-           const response = axios.get('http://localhost:3000/livros/alugados')
+           const response = axios.get('http://localhost:3000/livros/alugados',{
+            headers: {
+              'Authorization': 'Bearer '+ token,
+            }
+        })
            cont += 1;
            return (await response).data.livros
         }
@@ -24,8 +28,9 @@ var cont = 0
 
 export default function Cards (){
         const dispatch = useDispatch()
+        const token = useSelector(state => state.login.token)
         
-        pegaDados().then(response => {
+        pegaDados(token).then(response => {
           dispatch(carregarLivros(response))
         })
   
