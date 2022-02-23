@@ -11,7 +11,7 @@ function enviarMensagemReducer (state, msg_incompleta) {
 }
 
 function carregarMensagemReducer (state, msg_incompleta){
-    return state = msg_incompleta
+    return state = msg_incompleta.mensagem.map( msg => Object.assign(msg, {className: "container"}))
 }
 
 export const chatSlice = createSlice({

@@ -11,10 +11,10 @@ router.get('/', async function(req, res, next) {
 });
 
 router.post('/enviarMsg', function(req, res, next){
-  const {destinatarioID, remetenteID, msg, hora, img} = req.body
+  const {destinatarioID, msg, img} = req.body
   console.log(msg)
-  const horaFormatada = new Date(hora).toLocaleTimeString("pt-br", { hour12: false })
-  const novaMensagem = new chatModel({destinatarioID, remetenteID, msg, hora: horaFormatada, img})
+  const horaFormatada = new Date( Date.now() ).toLocaleTimeString("pt-br", { hour12: false })
+  const novaMensagem = new chatModel({destinatarioID, remetenteID: req.userId, msg, hora: horaFormatada, img})
   novaMensagem.save()
   res.send("teste")
 });

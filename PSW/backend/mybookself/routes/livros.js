@@ -25,7 +25,7 @@ router.post('/cadastro', uploadImg, (req, res, next) => {
 
   let dataFormatada = new Date(dataPublicacao).toLocaleDateString("pt-br", {
     year: 'numeric',
-    month: 'long',
+    month: 'numeric',
     day: 'numeric'
   })
 
@@ -48,7 +48,7 @@ router.post('/cadastro', uploadImg, (req, res, next) => {
 /* infomações do livros Alugados */
 router.get('/alugados', async (req, res, next) => {
   var dados = await pegarLivros(true)
-  var livros = { livrosAlugados: [], livroEmprestados: [] }
+  /* var livros = { livrosAlugados: [], livroEmprestados: [] }
   dados.livros.map(livro => {
     aluguel.find({ livroId: livro._id }, (err, docs) => {
       console.log(docs[0])
@@ -65,9 +65,9 @@ router.get('/alugados', async (req, res, next) => {
           //livros.livroEmprestados.push(data)
       } 
     })
-  })
+  }) */
 
-  res.status(200).send(livros)
+  res.status(200).send(dados)
 })
 
 router.post('/alugar', (req, res, next) => {
