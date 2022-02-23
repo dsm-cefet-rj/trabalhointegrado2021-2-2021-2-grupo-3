@@ -78,7 +78,7 @@ export default function DevoluçãoLivro() {
                         onChange={handleInputChange}
                         value={formValues.dataDevolução || ''}
                     />
-                    <ComprarLivro livro={livroAlugado} />
+                    <ComprarLivro/>
                     <div class="full-box">
                         <input type="submit" value="registrar" id="btn-submit"/>
                     </div>

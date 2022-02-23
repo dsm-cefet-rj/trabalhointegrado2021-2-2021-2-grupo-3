@@ -1,0 +1,8 @@
+.botao-livro{
+    text-decoration: none;
+    color: #f1f1f1;
+    box-sizing: border-box;
+    width: 20%; /* largura do box */
+    height: 10%;
+    background: #08558b;
+}

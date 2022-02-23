@@ -32,12 +32,11 @@ router.post('/cadastro', uploadImg, (req, res, next) => {
   const urlImg = "http://localhost:3000/images/" + req.file.filename
 
   const novoLivro = new livro({
-    titulo, proprietario,
-    dataPublicacao: dataFormatada,
-    descricao, edicao, editora, escritor,
-    img: urlImg,
-    proprietarioId: req.userId,
-    valorAluguel, alugado: false
+      titulo, proprietario,
+      dataPublicacao: dataFormatada,
+      descricao, edicao, editora, escritor,
+      img: "http://localhost:3000/images/" + req.file.filename, 
+      valorAluguel, alugado: false, comprado: false
   })
 
   novoLivro.save()
