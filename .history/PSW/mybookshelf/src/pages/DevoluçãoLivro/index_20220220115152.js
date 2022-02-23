@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { enviarMensagem } from "../../store/slices/chatSlice";
 import rino from "../../img/rino.jpg";
 import axios from 'axios';
-import { ComprarLivro }  from '../../components/ComprarLivro'
 
 
 export default function DevoluçãoLivro() {
@@ -78,7 +77,7 @@ export default function DevoluçãoLivro() {
                         onChange={handleInputChange}
                         value={formValues.dataDevolução || ''}
                     />
-                    <ComprarLivro livro={livroAlugado} />
+                    <ComprarLivro/>
                     <div class="full-box">
                         <input type="submit" value="registrar" id="btn-submit"/>
                     </div>

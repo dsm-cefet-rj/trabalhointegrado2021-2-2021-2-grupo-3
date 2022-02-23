@@ -1,0 +1,9 @@
+.botao-livro{
+    text-decoration: none;
+    box-sizing: border-box;
+    width: 20%; /* largura do box */
+  padding: 0 5%; /* padding à esquerda e à direita */
+  border: solid red;
+  border-width: 0 1%; /* borda à esquerda e à direita */
+    
+}
