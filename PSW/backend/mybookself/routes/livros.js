@@ -6,7 +6,7 @@ const uploadImg = require('../middleware/multer');
 
 async function pegarLivros(status) {
   var dados = { livros: [] }
-  const livrosinfo = await livro.find({ alugado: status });
+  var livrosinfo = await livro.find({ alugado: status });
 
   livrosinfo.map(livro => dados.livros.push(livro))
   return dados
@@ -48,18 +48,27 @@ router.post('/cadastro', uploadImg, (req, res, next) => {
 
 /* infomações do livros Alugados */
 router.get('/alugados', async (req, res, next) => {
-  const dados = await pegarLivros(true)
-  /*var livrosAlugados = { livros: [] }
-    dados.livros.map( async livro => {
-      const aluguelinfo = await aluguel.find({
-        livroId: livro._id,
-        locatarioId: req.userId
-        })
-        console.log (aluguelinfo[0])
-     })*/
-    
+  var dados = await pegarLivros(true)
+  var livros = { livrosAlugados: [], livroEmprestados: [] }
+  dados.livros.map(livro => {
+    aluguel.find({ livroId: livro._id }, (err, docs) => {
+      console.log(docs[0])
+      var data = {
+        livro,
+        aluguelInfo: {
+          aluguelId: docs[0]._id,
+          dataAluguel: docs[0].dataAluguel
+        }
+      }
 
-  res.status(200).send(dados)
+      if (docs[0].proprietarioId === req.userId) {
+          console.log('if')
+          //livros.livroEmprestados.push(data)
+      } 
+    })
+  })
+
+  res.status(200).send(livros)
 })
 
 router.post('/alugar', (req, res, next) => {
