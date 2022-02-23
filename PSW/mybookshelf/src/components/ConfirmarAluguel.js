@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { livroAlugar } from "../store/slices/livrosAlugarSlice";
 import { removerLivro } from "../store/slices/cadastroLivroSlice";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from "axios";
 
 export default ({ livro }) => {
+  const token = useSelector(state => state.login.token)
   const dispatch = useDispatch()
   return (
     <div>
@@ -34,10 +35,14 @@ export default ({ livro }) => {
               onClick={() => {
                 dispatch(livroAlugar(livro))
                 dispatch(removerLivro(livro))
-                axios.post("http://localhost:3000/livros/alugar", { livroID: livro._id })
+                axios.post("http://localhost:3000/livros/alugar", { livroId: livro.livroId },
+                  {
+                    headers: {
+                      'Authorization': 'Bearer ' + token,
+                    }
+                  })
                   .then((response) => {
                     console.log(response)
-
                   })
                   .catch((error) => { console.log(error) })
               }}>Confirmar Aluguel</Link>

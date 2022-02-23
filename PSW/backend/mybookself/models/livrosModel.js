@@ -11,7 +11,8 @@ const LivroSchema = mongoose.Schema({
     img: String,
     valorAluguel: Number,
     alugado: Boolean,
-    comprado: Boolean
+    comprado: Boolean,
+    proprietarioId: mongoose.Types.ObjectId
 })
 
 const livro = mongoose.model('livro', LivroSchema)

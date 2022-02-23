@@ -44,6 +44,7 @@ a{
     background-color: rgba(250, 250, 250, 1);
     box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
     text-align: center;
+    
    
 }
 
@@ -120,4 +121,9 @@ input[type="submit"]{
 }
 #register-container p{
     margin-bottom: 10px;
+    
+    /* border-style: solid;
+    border-color: #323232;
+    border-width: 1px;  */
+    
 } 
