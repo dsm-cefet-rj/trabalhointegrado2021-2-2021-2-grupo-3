@@ -20,17 +20,15 @@ export function ComprarLivro({livro}){
             }
             })            
             .then(function(response){
-                alert("Livro comprado")
                 console.log(response)
 
             }).catch(function(error) {
                 console.log(error)
-                alert("Livro n comprado")
-
             }
             
             )}}
             >
+            
             Comprar livro
         </div>
     )

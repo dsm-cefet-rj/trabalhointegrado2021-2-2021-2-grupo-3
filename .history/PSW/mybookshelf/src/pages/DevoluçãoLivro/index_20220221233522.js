@@ -12,7 +12,6 @@ import { ComprarLivro }  from '../../components/ComprarLivro'
 
 export default function DevoluçãoLivro() {
     const livroAlugado = useSelector(state => state.devolucao)
-    const token = useSelector(state => state.login.token)
     const [formValues, setFormValues] = useState({})
     const navigate = useNavigate()
 
@@ -37,17 +36,15 @@ export default function DevoluçãoLivro() {
             console.log(error)
         })
         const mensagem = {
-            destinatarioID: livroAlugado._id,
+            destinatarioID: "teste1",
+            remetenteID: "teste2",
+            hora: Date.now(),
             msg: "Olá " + livroAlugado.proprietario + ", poderíamos marcar a devolução do "
                 +livroAlugado.titulo+" para o dia: " + data.dataDevolução + "?",
             img:rino 
         }
         dispatch(enviarMensagem(mensagem))
-        axios.post('http://localhost:3000/Chat/enviarMsg', mensagem, {
-            headers: {
-                'Authorization': 'Bearer '+ token,
-              }
-        })
+        axios.post('http://localhost:3000/Chat/enviarMsg', mensagem)
         navigate('/Chat') ;
     }
     const dispatch= useDispatch()
@@ -81,14 +78,13 @@ export default function DevoluçãoLivro() {
                         onChange={handleInputChange}
                         value={formValues.dataDevolução || ''}
                     />
+                    <ComprarLivro livro={livroAlugado} />
                     <div class="full-box">
                         <input type="submit" value="registrar" id="btn-submit"/>
                     </div>
                 </form>
             </div>
-        </div>
-        <div>
-            <ComprarLivro livro={livroAlugado} />
+            
         </div>
         </>
     );

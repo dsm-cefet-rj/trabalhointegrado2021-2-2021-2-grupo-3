@@ -85,10 +85,9 @@ export default function DevoluçãoLivro() {
                         <input type="submit" value="registrar" id="btn-submit"/>
                     </div>
                 </form>
+                <ComprarLivro livro={livroAlugado} />
             </div>
-        </div>
-        <div>
-            <ComprarLivro livro={livroAlugado} />
+            
         </div>
         </>
     );

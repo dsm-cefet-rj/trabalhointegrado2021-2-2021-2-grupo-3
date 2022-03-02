@@ -25,7 +25,6 @@ export function ComprarLivro({livro}){
 
             }).catch(function(error) {
                 console.log(error)
-                alert("Livro n comprado")
 
             }
             

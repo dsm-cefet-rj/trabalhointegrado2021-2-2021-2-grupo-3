@@ -18,19 +18,17 @@ export function ComprarLivro({livro}){
                 headers: {
                 'Authorization': 'Bearer '+ token,
             }
-            })            
+            })
+
+            alert("Livro comprado")
+            
             .then(function(response){
-                alert("Livro comprado")
                 console.log(response)
 
             }).catch(function(error) {
                 console.log(error)
-                alert("Livro n comprado")
-
-            }
+            })}}>
             
-            )}}
-            >
             Comprar livro
         </div>
     )

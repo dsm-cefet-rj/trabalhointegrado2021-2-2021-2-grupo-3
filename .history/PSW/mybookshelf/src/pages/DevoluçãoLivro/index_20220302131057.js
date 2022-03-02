@@ -86,8 +86,6 @@ export default function DevoluçãoLivro() {
                     </div>
                 </form>
             </div>
-        </div>
-        <div>
             <ComprarLivro livro={livroAlugado} />
         </div>
         </>

@@ -11,27 +11,25 @@ export function ComprarLivro({livro}){
     const livroAlugado = useSelector(state => state.devolucao)
 
     return(
-        <div className="botao-livro"    
-           
+        <div>    
+            <button className="botao-livro"
             onClick={() => {axios.post('http://localhost:3000/compradolivro', {livroID: livroAlugado._id}, 
             {
                 headers: {
                 'Authorization': 'Bearer '+ token,
             }
-            })            
+            })
+
+            alert("Livro comprado")
+            
             .then(function(response){
-                alert("Livro comprado")
                 console.log(response)
 
             }).catch(function(error) {
                 console.log(error)
-                alert("Livro n comprado")
-
-            }
-            
-            )}}
+            })}}
             >
-            Comprar livro
+            Comprar livro</button>
         </div>
     )
 }
