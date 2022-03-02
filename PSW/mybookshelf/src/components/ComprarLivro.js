@@ -1,8 +1,5 @@
 import "../css/ComprarLivro.css"
-import { Link } from "react-router-dom";
 import React from "react";
-import { livroAlugar } from "../store/slices/livrosAlugarSlice";
-import { removerLivro } from "../store/slices/cadastroLivroSlice";
 import axios from "axios";
 import  { useSelector } from 'react-redux'
 
@@ -11,8 +8,9 @@ export function ComprarLivro({livro}){
     const livroAlugado = useSelector(state => state.devolucao)
 
     return(    
-        <Link to="/chat" className="botao-livro"
-        onClick={() => {axios.post('http://localhost:3000/compradolivro', {livroID: livroAlugado._id}, 
+        <div className="botao-livro"
+        onClick={() => {
+        axios.post('http://localhost:3000/compradolivro', {livroID: livroAlugado._id}, 
         {
             headers: {
               'Authorization': 'Bearer '+ token,
@@ -20,12 +18,14 @@ export function ComprarLivro({livro}){
         })
         
         .then(function(response){
+            alert("livro comprado!!")
             console.log(response)
 
         }).catch(function(error) {
+            alert("Erro ao efetuar compra!!")
             console.log(error)
         })}}
         >
-        Comprar livro</Link>
+        Comprar livro</div>
     )
 }
