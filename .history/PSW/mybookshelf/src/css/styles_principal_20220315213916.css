@@ -1,0 +1,226 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica;
+    border: none;
+}
+
+body{
+    /*background-color: #A6A6A6;*/
+    background-image: url("https://www.netpremacy.com/wp-content/uploads/2018/09/Background-website-01.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.bg-primary-color{
+    background-color: rgb(217 185 137);
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+}
+
+.botaoLogout{
+    border-radius: 10%;
+    padding: 5px;
+    background-color: rgba(151, 140, 140, 0.705);
+}
+
+.bg-secondary-color{
+background-color: #ece8ea;
+}
+
+.bg-dark-color{
+    background-color: #050505;
+}
+
+.primary-color{
+    color: #050505;
+}
+
+.center {
+    text-align: center;
+    transform: translateY(50px);
+}
+   
+.buttonDevolver {
+    width:50%;
+    transform: translateX(30em);
+}
+
+.secondary-color{
+    color: #7a7a7a;
+}
+
+.Chat_title{
+    color: #050505;
+    font-weight: 700;
+    font-size: 1.5em;
+    transform: translateX(15em);
+}
+
+.Chat_To{
+    color: #050505;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.livrosAlugados{
+    transform: translate(10px, 80px);
+    font-size: 2em;
+}
+
+.confirmarAluguel{
+    transform: translateY(-40px);
+    font-size: 2em;
+}
+
+.btnConfirmarAluguel{
+    transform: translate(54.3em, 20px);
+}
+
+.third-color{
+    color: #ffffff;
+}
+
+.LoginClose{
+    transform: translateX(150px);
+}
+
+.btn-vermais{
+    transform: translateX(1650px);
+}
+
+/* navbar */
+#navbar{
+    border-bottom: 1px solid #7a7a7a;
+}
+
+#navbar a:hover{
+    color:#7a7a7a
+}
+
+
+.navbar-brand span{
+    
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-left: 0.5em;
+}
+
+#navbar-items .navbar-nav{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#navbar-items .nav-item{
+    
+    margin: 0 1em;
+}
+
+/* footer */
+#footer{
+    border-bottom: 1px solid #7a7a7a;
+    height: 65px;
+}
+
+#footer a:hover{
+    color:#7a7a7a
+}
+
+.footer-pos{
+    position: static;
+}
+
+.footer-brand span{
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-left: -10em;
+}
+
+.footer-brand2 span{
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-left: 22em;
+    text-align: center;
+}
+
+#footer-items .navbar-nav{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#footer-items .nav-item{
+    margin: 0 1em;
+}
+
+/* card */
+
+.card{
+    width: 16rem;
+    margin-top: 8em;
+    margin-left: 6em;
+    margin-right: 6em;
+    margin-bottom: 1em;
+    border-color: rgb(80, 80, 80);
+}
+
+
+
+/* responsive */
+
+.table-responsive-stack tr {                                                                
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+
+  .table-responsive-stack td,
+  .table-responsive-stack th {
+     display:block;
+  /*      
+     flex-grow | flex-shrink | flex-basis   */
+     -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  }
+
+  .table-responsive-stack .table-responsive-stack-thead {
+     font-weight: bold;
+  }
+
+  @media screen and (max-width: 768px) {
+     .table-responsive-stack tr {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        border-bottom: 3px solid #ccc;
+        display:block;
+
+     }
+     /*  IE9 FIX   */
+     .table-responsive-stack td {
+        float: left\9;
+        width:100%;
+     }
+  }                                                                                 
+
+  .botao-compra{
+    display: flex;
+
+    box-sizing: border-box;
+
+    border: 1px solid red;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: -11rem;
+}

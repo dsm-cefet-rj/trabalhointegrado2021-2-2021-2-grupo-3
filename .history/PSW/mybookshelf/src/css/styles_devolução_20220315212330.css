@@ -1,0 +1,35 @@
+
+h3 {
+    text-align: center;
+}
+
+.card-img {
+    text-align: center;
+}
+
+.book-img {
+    width: 200px;
+    height: 300px;
+}
+
+.card-body {
+    margin-top: 10px;
+    text-justify: center;
+}
+
+.card-description, .rent-information {
+    margin-top: 20px;
+}
+
+#devolution-form {
+    width: 80%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+} 
+
+.botao-compra{
+    display: flex;
+}

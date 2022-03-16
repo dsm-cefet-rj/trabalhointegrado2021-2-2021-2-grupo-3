@@ -1,0 +1,36 @@
+.botao-livro{
+    text-decoration: none;
+    color: #f1f1f1;
+    box-sizing: border-box;
+    width: 130px; /* largura do box */
+    height: 30px;
+    background: #08558b;
+    border-radius: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botao-livro:hover{
+    opacity: 70%;
+    cursor: pointer;
+
+}
+
+
+.botao-compra{
+    display: flex;
+
+    box-sizing: border-box;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-top: -11rem;
+}
+
+.botao-compra:hover{
+    opacity: 70%;
+    cursor: pointer;
+
+}
